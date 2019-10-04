@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="instructionsView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ScrollPane prefHeight="1040.0" prefWidth="411.0">
+            <content>
+                <Pane prefHeight="1040.0" prefWidth="393.0">
+                    <children>
+                        <ImageView fitHeight="906.0" fitWidth="411.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@../images/darkWall.jpeg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="17.0" layoutY="32.0" text="Rules" textFill="#fffbfb">
+                            <font>
+                                <Font name="Luminari" size="60.0" />
+                            </font>
+                            <effect>
+                                <DropShadow spread="0.55" />
+                            </effect>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="106.0" prefHeight="906.0" prefWidth="387.0" text="The Mafia party game presents a conflict between &#10;the Mafia (the informed minority) and the &#10;Innocents (the uninformed majority). The game &#10;has two phases; &quot;night&quot;, when the Mafia might &#10;secretly murder an innocent, and &quot;day&quot; when &#10;Innocents vote to eliminate a Mafiosi suspect. &#10; The game ends when all the Mafia members &#10;are eliminated or there are more Mafia members &#10;than Innocents.&#10;How to play:&#10;1-Choose Players.&#10;2-Each player is going to be assigned for a role &#10;    in Mafia's world. The roles are:&#10;    *Townie:Do nothing at night&#10;    *Detective:Reveals the team for one player per &#10;        night&#10;    *Mafia(Hitman):May kill someone each night&#10;    *Doctor:May heal one player each night (Cant go &#10;        same person two nights in a row)&#10;    *Survivor:Do nothing at night &#10;    *Mafia(Barman):May stop the action of another &#10;        player each night (Can't go same person each &#10;        night).[6 players and more]&#10;     *Bodyguard:May save another person by stepping &#10;         infront of the bullet per night. (You will die in&#10;         their place).[7 players and more]&#10;     *Lyncher:Do nothing at night.[8 players and more]&#10;     *Mafiaboss(GodFather):Hidden from the Detective. &#10;         Can send a message to another Mafia memeber &#10;         each night. [9 players and more]&#10;     *Vigilante:May kill new person each night, but is &#10;         trying to kill Mafia. Note: Do not have to kill &#10;         someone each night. [10 players]&#10;3-Play through the day and night cycles to see &#10;    which side is going to win." textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </content>
+        </ScrollPane>
+    </children>
+</StackPane>
