@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPopup?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="gameSceneView" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mafia.controllers.GameSceneController">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="411.0">
+            <children>
+                <Ellipse fill="#636363" layoutX="202.0" layoutY="299.0" radiusX="92.0" radiusY="199.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="100.0" />
+                <Label fx:id="centerLabel" alignment="CENTER" layoutX="138.0" layoutY="122.0" prefHeight="238.0" prefWidth="129.0" text="Tap your name &#10;to see your role" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="141.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="122.0">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </Label>
+                <Button fx:id="centralButton" layoutX="-2.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-border-color: gray;" text="Start Game" textAlignment="CENTER" textFill="WHITE" translateX="128.0" translateY="320.0">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+                <ImageView fx:id="player1Icon" fitHeight="104.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="502.0" AnchorPane.leftAnchor="148.76923370361328" AnchorPane.rightAnchor="155.23076629638672" AnchorPane.topAnchor="-6.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player1" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="113.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 1" textFill="WHITE" AnchorPane.bottomAnchor="517.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="8.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player3Icon" fitHeight="104.0" fitWidth="265.0" layoutX="23.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="427.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="281.2307662963867" AnchorPane.topAnchor="69.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player3" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="83.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="107.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 3" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="442.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="83.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player4Icon" fitHeight="104.0" fitWidth="706.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="-0.23076629638671875" AnchorPane.rightAnchor="304.2307662963867" AnchorPane.topAnchor="181.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player4" alignment="TOP_CENTER" layoutY="195.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="111.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 4" textFill="WHITE" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="195.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player6Icon" fitHeight="104.0" fitWidth="151.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="203.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="304.2307662963867" AnchorPane.topAnchor="293.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player6" alignment="TOP_CENTER" layoutY="307.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="107.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 6" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="307.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player8Icon" fitHeight="104.0" fitWidth="177.0" layoutX="11.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="293.2307662963867" AnchorPane.topAnchor="401.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player8" alignment="TOP_CENTER" layoutX="11.0" layoutY="423.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="107.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 8" textFill="WHITE" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="293.0" AnchorPane.topAnchor="423.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player10Icon" fitHeight="94.0" fitWidth="122.0" layoutX="145.0" layoutY="498.0" pickOnBounds="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="498.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player10" alignment="TOP_CENTER" layoutX="153.0" layoutY="508.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="107.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 10" textFill="WHITE" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="508.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player2Icon" fitHeight="104.0" fitWidth="121.0" layoutX="283.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="427.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="21.23076629638672" AnchorPane.topAnchor="69.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player2" alignment="TOP_CENTER" layoutX="283.0" layoutY="87.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="113.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 2" textFill="WHITE" AnchorPane.bottomAnchor="433.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="87.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player5Icon" fitHeight="104.0" fitWidth="121.0" layoutX="294.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="10.230766296386719" AnchorPane.topAnchor="181.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player5" alignment="TOP_CENTER" layoutX="294.0" layoutY="199.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="113.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 5" textFill="WHITE" AnchorPane.bottomAnchor="321.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="199.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player7Icon" fitHeight="104.0" fitWidth="169.0" layoutX="294.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="203.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="10.230766296386719" AnchorPane.topAnchor="293.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player7" alignment="TOP_CENTER" layoutX="294.0" layoutY="311.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="113.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 7" textFill="WHITE" AnchorPane.bottomAnchor="214.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="311.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <ImageView fx:id="player9Icon" fitHeight="104.0" fitWidth="190.0" layoutX="278.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="26.23076629638672" AnchorPane.topAnchor="409.0">
+                    <image>
+                        <Image url="@../../images/hat.jpeg" />
+                    </image>
+                </ImageView>
+                <Button fx:id="player9" alignment="TOP_CENTER" layoutX="278.0" layoutY="427.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="116.0" style="-fx-background-radius: 200; -fx-border-radius: 2000; -fx-background-color: transparent;" text="Player 9" textFill="WHITE" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="427.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+            <Button fx:id="settingsButton" layoutX="4.0" layoutY="8.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="99.0" style="-fx-background-color: transparent;" text="Settings" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../images/settingsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            </children>
+        </AnchorPane>
+      <JFXPopup fx:id="settingsPopup" />
+    </children>
+</StackPane>

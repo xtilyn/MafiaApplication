@@ -1,4 +1,4 @@
-package sample;
+package mafia.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -19,6 +19,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import mafia.entities.MafiaApp;
+import mafia.entities.Player;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,8 +29,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import static sample.MafiaApp.mafiaMembers;
-import static sample.MafiaApp.playerInfo;
+import static mafia.entities.MafiaApp.mafiaMembers;
+import static mafia.entities.MafiaApp.playerInfo;
 
 /**
  * MainMenuController displays instructions and about page through popups.
@@ -171,7 +173,7 @@ public class MainMenuController implements Initializable {
     private void displayMainMenuView() {
 
         try {
-            StackPane mainMenuFXML = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+            StackPane mainMenuFXML = FXMLLoader.load(getClass().getResource("ui/mainMenu.fxml"));
             mainMenuView.getChildren().setAll(mainMenuFXML);
         } catch (IOException e) {
             e.printStackTrace();
@@ -311,7 +313,7 @@ public class MainMenuController implements Initializable {
 
         roleAssignmentTask.setOnSucceeded(e -> {
             try {
-                StackPane gameScene = FXMLLoader.load(getClass().getResource("gameScene.fxml"));
+                StackPane gameScene = FXMLLoader.load(getClass().getResource("ui/gameScene.fxml"));
                 mainMenuView.getChildren().setAll(gameScene);
 
                 // TEMP

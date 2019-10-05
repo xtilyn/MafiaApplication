@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPopup?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXPopup>
+         <children>
+            <Label text="Mafia members: ......" textAlignment="CENTER" translateX="10.0" translateY="320.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" text="Button" />
+            <Label contentDisplay="CENTER" prefWidth="300.0" text="ROLE" textAlignment="CENTER" translateX="55.0" translateY="100.0">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Label prefHeight="343.0" prefWidth="318.0" text="what you can do:&#10;&#10;&#10;your goal:&#10;&#10;" textAlignment="CENTER" translateX="45.0" translateY="160.0" />
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="411.0" spacing="20.0" translateY="300.0">
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </JFXPopup>
+   </children>
+</StackPane>

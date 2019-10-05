@@ -1,4 +1,4 @@
-package sample;
+package mafia.entities;
 
 /**
  * This class stores the data of each player

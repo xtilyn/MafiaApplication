@@ -17,7 +17,7 @@
                     <children>
                         <ImageView fitHeight="906.0" fitWidth="411.0" pickOnBounds="true">
                             <image>
-                                <Image url="@../images/darkWall.jpeg" />
+                                <Image url="@../../images/darkWall.jpeg" />
                             </image>
                         </ImageView>
                         <Label layoutX="17.0" layoutY="32.0" text="Rules" textFill="#fffbfb">

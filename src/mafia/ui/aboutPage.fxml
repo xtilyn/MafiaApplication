@@ -12,7 +12,7 @@
     <children>
         <ImageView fitHeight="600.0" fitWidth="411.0" pickOnBounds="true">
             <image>
-                <Image url="@../images/darkWall.jpeg" />
+                <Image url="@../../images/darkWall.jpeg" />
             </image></ImageView>
         <Pane>
             <children>

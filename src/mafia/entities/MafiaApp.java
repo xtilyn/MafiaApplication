@@ -1,4 +1,4 @@
-package sample;
+package mafia.entities;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -37,11 +37,11 @@ public class MafiaApp extends Application {
         return mafiaWin;
     }
 
-    static void setTotalPlayers(int num) {
+    public static void setTotalPlayers(int num) {
         totalPlayers = num;
     }
 
-    static int getTotalPlayers() {
+    public static int getTotalPlayers() {
         return totalPlayers;
     }
 
@@ -171,7 +171,7 @@ public class MafiaApp extends Application {
      * Sets the status of each player to be alive. As each player starts out alive in the game
      * Sets the inBar (The barman has stopped them from doing their action tonight) status to false for each player
      */
-    static void nameOfPlayers(List<String> playerNames){
+    public static void nameOfPlayers(List<String> playerNames){
 
         for(int i =0; i<totalPlayers; i++){
             Player p = new Player();
@@ -187,7 +187,7 @@ public class MafiaApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ui/mainMenu.fxml"));
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mafia");

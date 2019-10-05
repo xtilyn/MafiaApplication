@@ -1,9 +1,9 @@
-package sample;
+package mafia.entities;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static sample.MafiaApp.playerInfo;
+import static mafia.entities.MafiaApp.playerInfo;
 
 /**
  * 2017-02-19.

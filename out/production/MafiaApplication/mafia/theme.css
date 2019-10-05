@@ -1,0 +1,135 @@
+.label {
+    -fx-font-family: Arial;
+}
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll-pane {
+   -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: gray;
+    -fx-background-radius: 5em;
+    -fx-opacity: 0.35;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+#text-fields-container {
+    -fx-pref-height: 600;
+    -fx-pref-width: 411;
+    -fx-padding: 50, 20, 20, 20;
+    -fx-background-color: transparent;
+}
+.list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: black;
+    -fx-border-color: black;
+    -fx-font-size: 15px;
+}
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#333 0%, #777 25%, #aaa 75%, #eee 100%);
+}
+
+.list-cell:even {
+    -fx-background-color: black;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: linear-gradient(#333 0%, #777 25%, #aaa 75%, #eee 100%);
+}
+
+/* Author: Jasper Potts
+ * Dec 20, 2011 */
+#dark-blue {
+    -fx-background-color:
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#ipad-dark-grey {
+    -fx-background-color:
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-radius: 200;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
+
+/* Author: Zoran Pavlović
+ * 2012 */
+#btn4{
+	-fx-text-fill:white;
+	-fx-font-size: 20px;
+	-fx-background-color: linear-gradient(#999999 0%, #000000 50%, #999999 100%);
+	-fx-padding: 5 30 5 30;
+
+}
+
+.progress-bar {
+    -fx-indeterminate-bar-length: 60;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+    -fx-indeterminate-bar-animation-time: 2;
+}
+.progress-bar > .bar {
+    -fx-background-color: black;
+    -fx-background-insets: 3 3 4 3;
+    -fx-background-radius: 2;
+    -fx-padding: 0.75em;
+}
+.progress-bar:indeterminate > .bar {
+    -fx-background-color: linear-gradient(to left, transparent, -fx-accent);
+}
+.progress-bar > .track {
+      -fx-background-color:
+          -fx-shadow-highlight-color,
+          linear-gradient(to bottom, derive(-fx-text-box-border, -10%), -fx-text-box-border),
+          linear-gradient(to bottom,
+            derive(-fx-control-inner-background, -7%),
+            derive(-fx-control-inner-background, 0%),
+            derive(-fx-control-inner-background, -3%),
+            derive(-fx-control-inner-background, -9%)
+          );
+    -fx-background-insets: 0, 0 0 1 0, 1 1 2 1;
+    -fx-background-radius: 4, 3, 2; /* 10, 9, 8 */
+}

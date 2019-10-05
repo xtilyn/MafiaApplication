@@ -1,4 +1,4 @@
-package sample;
+package mafia.entities;
 
 import java.util.Random;
 

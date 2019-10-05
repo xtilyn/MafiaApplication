@@ -1,4 +1,4 @@
-package sample;
+package mafia.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -21,6 +21,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import mafia.entities.Action;
+import mafia.entities.MafiaApp;
+import mafia.entities.Player;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,8 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static sample.MafiaApp.mafiaMembers;
-import static sample.MafiaApp.playerInfo;
+import static mafia.entities.MafiaApp.mafiaMembers;
+import static mafia.entities.MafiaApp.playerInfo;
 
 /**
  * Each player are assigned their own button and an icon. During the night cycle, each players buttons
@@ -1081,7 +1084,7 @@ public class GameSceneController implements Initializable{
     private void goToMainMenu() {
 
         try {
-            StackPane mainMenu = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+            StackPane mainMenu = FXMLLoader.load(getClass().getResource("ui/mainMenu.fxml"));
             gameSceneView.getChildren().setAll(mainMenu);
         } catch (IOException e) {
             e.printStackTrace();
