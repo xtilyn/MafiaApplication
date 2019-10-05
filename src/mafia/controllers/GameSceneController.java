@@ -22,8 +22,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import mafia.entities.Action;
-import mafia.entities.MafiaApp;
-import mafia.entities.Player;
+import mafia.MafiaApp;
+import mafia.entities.player_roles.Player;
+import mafia.models.GameSceneModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,56 +33,89 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static mafia.entities.MafiaApp.mafiaMembers;
-import static mafia.entities.MafiaApp.playerInfo;
+import static mafia.MafiaApp.mafiaMembers;
+import static mafia.MafiaApp.playerInfo;
 
 /**
  * Each player are assigned their own button and an icon. During the night cycle, each players buttons
  * are set to view a popup specific to their role. There they can select their target (if they are able to target
  * at night). During day cycle, the buttons are set to kill/lynch the player associated to that button.
  */
-public class GameSceneController implements Initializable{
+public class GameSceneController implements Initializable {
 
-    private MafiaApp game;
-    private Action action;
-    private HashMap<String, Integer> jobPositionMap = new HashMap<>();
+    private GameSceneModel gameSceneModel;
 
     //Key-Value: Role-popupWindow(associated to role)
     private HashMap<String, JFXPopup> popupWindows = new HashMap<>();
 
-    // Roles who can target during the night
-    private final String[] canTarget = {"Mafia: Hitman", "Doctor", "Mafia- Barman", "Bodyguard",
-            "Vigilante", "Detective"};
-
     // the message the GodFather can give to Mafia members the next night
     private TextField mafiaMessage = new TextField();
 
-    @FXML private Button centralButton;
-    @FXML private Label centerLabel;
-    @FXML private Button settingsButton;
-    @FXML private JFXPopup settingsPopup;
-    @FXML private StackPane gameSceneView;
+    @FXML
+    private Button centralButton;
+    @FXML
+    private Label centerLabel;
+    @FXML
+    private Button settingsButton;
+    @FXML
+    private JFXPopup settingsPopup;
+    @FXML
+    private StackPane gameSceneView;
 
     // ten players are displayed by default
-    @FXML private Button player1; @FXML private Button player2;
-    @FXML private Button player3; @FXML private Button player4;
-    @FXML private Button player5; @FXML private Button player6;
-    @FXML private Button player7; @FXML private Button player8;
-    @FXML private Button player9; @FXML private Button player10;
+    @FXML
+    private Button player1;
+    @FXML
+    private Button player2;
+    @FXML
+    private Button player3;
+    @FXML
+    private Button player4;
+    @FXML
+    private Button player5;
+    @FXML
+    private Button player6;
+    @FXML
+    private Button player7;
+    @FXML
+    private Button player8;
+    @FXML
+    private Button player9;
+    @FXML
+    private Button player10;
 
-    @FXML private ImageView player1Icon; @FXML private ImageView player2Icon;
-    @FXML private ImageView player3Icon; @FXML private ImageView player4Icon;
-    @FXML private ImageView player5Icon; @FXML private ImageView player6Icon;
-    @FXML private ImageView player7Icon; @FXML private ImageView player8Icon;
-    @FXML private ImageView player9Icon; @FXML private ImageView player10Icon;
+    @FXML
+    private ImageView player1Icon;
+    @FXML
+    private ImageView player2Icon;
+    @FXML
+    private ImageView player3Icon;
+    @FXML
+    private ImageView player4Icon;
+    @FXML
+    private ImageView player5Icon;
+    @FXML
+    private ImageView player6Icon;
+    @FXML
+    private ImageView player7Icon;
+    @FXML
+    private ImageView player8Icon;
+    @FXML
+    private ImageView player9Icon;
+    @FXML
+    private ImageView player10Icon;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        game = new MafiaApp();
-        action = new Action( MafiaApp.getTotalPlayers(), jobPositionMap);
-        initJobPositionMap();
+        MafiaApp game = new MafiaApp();
+        gameSceneModel = new GameSceneModel(game);
+        Action action = new Action(MafiaApp.getTotalPlayers(), gameSceneModel.getJobPositionMap());
+        gameSceneModel.setAction(action);
+
+        gameSceneModel.initJobPositionMap();
+
         // set event handler for the center button & settings button
         centralButton.setOnAction(e -> dayCycle());
         initSettingsPopup();
@@ -94,7 +128,7 @@ public class GameSceneController implements Initializable{
         initPlayersPopup();
         initPlayersButtons();
         // add css theme
-        String style = getClass().getResource("theme.css").toExternalForm();
+        String style = getClass().getResource("../theme.css").toExternalForm();
         gameSceneView.getStylesheets().add(style);
 
     }
@@ -103,19 +137,25 @@ public class GameSceneController implements Initializable{
     private void resetNightCyclePopups() {
         // loops through all of the available roles in the popupWindows Map
         for (String role : popupWindows.keySet()) {
-            if (Arrays.asList(canTarget).contains(role)) {
+            if (Arrays.asList(gameSceneModel.getRolesThatCanTarget()).contains(role)) {
                 switch (role) {
-                    case "Detective": resetDetectivePopup();
+                    case "Detective":
+                        resetDetectivePopup();
                         break;
-                    case "Mafia: Hitman": resetHitmanPopup();
+                    case "Mafia: Hitman":
+                        resetHitmanPopup();
                         break;
-                    case "Doctor": resetDoctorPopup();
+                    case "Doctor":
+                        resetDoctorPopup();
                         break;
-                    case "Mafia- Barman": resetBarmanPopup();
+                    case "Mafia- Barman":
+                        resetBarmanPopup();
                         break;
-                    case "Bodyguard": resetBodyguardPopup();
+                    case "Bodyguard":
+                        resetBodyguardPopup();
                         break;
-                    case "Vigilante": resetVigilantePopup();
+                    case "Vigilante":
+                        resetVigilantePopup();
                         break;
                 }
             } else if (role.equals("Mafiaboss- GodFather"))
@@ -126,7 +166,7 @@ public class GameSceneController implements Initializable{
     // temporary layout for vigilante
     private void resetVigilantePopup() {
 
-        int myPosition = jobPositionMap.get("Vigilante");
+        int myPosition = gameSceneModel.getJobPositionMap().get("Vigilante");
         playerInfo.get(myPosition).setIsTargetSelected(false);
 
         VBox vigilanteView = new VBox(10);
@@ -183,7 +223,7 @@ public class GameSceneController implements Initializable{
             // targets the selected player
             if (!myTarget.equals("No one")) {
                 target.setText("Your target: " + myTarget);
-                targetPlayer(myTarget, "Vigilante");
+                gameSceneModel.targetPlayer(myTarget, "Vigilante", this::setPlayerIsInBarPopup);
             } else {
                 target.setText("No target selected");
             }
@@ -193,13 +233,6 @@ public class GameSceneController implements Initializable{
         });
 
 
-    }
-
-    // initialize map to find a player's position using their role
-    private void initJobPositionMap() {
-        for (Player player : playerInfo) {
-            jobPositionMap.put(player.getRole(), player.getPlayPosition());
-        }
     }
 
     // temporary layout for godfather
@@ -246,7 +279,7 @@ public class GameSceneController implements Initializable{
     // temporary layout for bodyguard
     private void resetBodyguardPopup() {
 
-        int myPosition = jobPositionMap.get("Bodyguard");
+        int myPosition = gameSceneModel.getJobPositionMap().get("Bodyguard");
         playerInfo.get(myPosition).setIsTargetSelected(false);
 
         VBox bodyguardView = new VBox(10);
@@ -303,7 +336,7 @@ public class GameSceneController implements Initializable{
             // target the selected player
             if (!myTarget.equals("No one")) {
                 target.setText("You protected " + myTarget);
-                targetPlayer(myTarget,"Bodyguard" );
+                gameSceneModel.targetPlayer(myTarget, "Bodyguard", this::setPlayerIsInBarPopup);
             } else {
                 target.setText("No target selected");
             }
@@ -317,7 +350,7 @@ public class GameSceneController implements Initializable{
     // temporary layout for barman
     private void resetBarmanPopup() {
 
-        int myPosition = jobPositionMap.get("Mafia- Barman");
+        int myPosition = gameSceneModel.getJobPositionMap().get("Mafia- Barman");
         playerInfo.get(myPosition).setIsTargetSelected(false);
 
         VBox barmanView = new VBox(10);
@@ -383,7 +416,7 @@ public class GameSceneController implements Initializable{
             // target the selected player
             if (!myTarget.equals("No one")) {
                 target.setText("You stopped " + myTarget + " from performing an action");
-                targetPlayer(myTarget,"Mafia- Barman" );
+                gameSceneModel.targetPlayer(myTarget, "Mafia- Barman", this::setPlayerIsInBarPopup);
             } else {
                 target.setText("No target selected");
             }
@@ -397,7 +430,7 @@ public class GameSceneController implements Initializable{
     // temporary layout for the doctor
     private void resetDoctorPopup() {
 
-        int myPosition = jobPositionMap.get("Doctor");
+        int myPosition = gameSceneModel.getJobPositionMap().get("Doctor");
         playerInfo.get(myPosition).setIsTargetSelected(false);
 
         VBox doctorView = new VBox(10);
@@ -454,7 +487,7 @@ public class GameSceneController implements Initializable{
             // target the selected player
             if (!myTarget.equals("No one")) {
                 target.setText("You healed " + myTarget);
-                targetPlayer(myTarget,"Doctor" );
+                gameSceneModel.targetPlayer(myTarget, "Doctor", this::setPlayerIsInBarPopup);
             } else {
                 target.setText("No target selected");
             }
@@ -468,7 +501,7 @@ public class GameSceneController implements Initializable{
     // temporary layout for hitman
     private void resetHitmanPopup() {
 
-        int myPosition = jobPositionMap.get("Mafia: Hitman");
+        int myPosition = gameSceneModel.getJobPositionMap().get("Mafia: Hitman");
         playerInfo.get(myPosition).setIsTargetSelected(false);
 
         VBox hitmanView = new VBox(10);
@@ -534,7 +567,7 @@ public class GameSceneController implements Initializable{
             // target the selected player
             if (!myTarget.equals("No one")) {
                 target.setText("Your target: " + myTarget);
-                targetPlayer(myTarget,"Mafia: Hitman" );
+                gameSceneModel.targetPlayer(myTarget, "Mafia: Hitman", this::setPlayerIsInBarPopup);
             } else {
                 target.setText("No target selected");
             }
@@ -547,7 +580,7 @@ public class GameSceneController implements Initializable{
     // temporary layout for detective
     private void resetDetectivePopup() {
 
-        int myPosition = jobPositionMap.get("Detective");
+        int myPosition = gameSceneModel.getJobPositionMap().get("Detective");
         playerInfo.get(myPosition).setIsTargetSelected(false);
 
         VBox detectiveView = new VBox(10);
@@ -618,36 +651,13 @@ public class GameSceneController implements Initializable{
 
     }
 
-    // Targets the selected name in the listView from a specific popup based on role
-    private void targetPlayer(String myTargetsName, String targetersRole) {
-        int target = getPlayerPosition(myTargetsName);
-        switch (targetersRole) {
-            case "Mafia: Hitman":
-                action.hitman(target);
-                break;
-            case "Doctor":
-                action.doctor(target);
-                break;
-            case "Mafia- Barman":
-                boolean memberOfCanTarget = action.barman(target);
-                if (memberOfCanTarget)
-                    setPlayerIsInBarPopup(target);
-                break;
-            case "Bodyguard":
-                action.bodyguard(target);
-                break;
-            case "Vigilante":
-                action.vigilante(target);
-                break;
-        }
-    }
-
     // if the player in inBar, set their popup such that they cannot perform any action
     private void setPlayerIsInBarPopup(int playerToStop) {
 
         playerInfo.get(playerToStop).setIsTargetSelected(true);
         VBox inBarView = new VBox(20);
-        inBarView.setPrefHeight(300); inBarView.setPrefWidth(411);
+        inBarView.setPrefHeight(300);
+        inBarView.setPrefWidth(411);
         inBarView.setTranslateY(300);
         inBarView.setPadding(new Insets(20, 0, 0, 0));
         inBarView.setStyle("-fx-background-color: black;");
@@ -664,17 +674,6 @@ public class GameSceneController implements Initializable{
                 playerInfo.get(playerToStop).getRole()
         ).getChildren().addAll(inBarView);
 
-    }
-
-    // gets player's position based on their name
-    private int getPlayerPosition(String playerName) {
-        int pos = 0;
-        for (int count = 0; count < playerInfo.size(); count++) {
-            if (playerInfo.get(count).getName().equals(playerName)) {
-                pos = count;
-            }
-        }
-        return pos;
     }
 
     // assign each popup windows to corresponding player based on role
@@ -725,37 +724,37 @@ public class GameSceneController implements Initializable{
 
     // assign each popup windows to corresponding player based on role
     private void initPopupsSources() {
-        popupWindows.get(  playerInfo.get(0).getRole()  ).setSource(player1);
-        popupWindows.get(  playerInfo.get(1).getRole()  ).setSource(player2);
-        popupWindows.get(  playerInfo.get(2).getRole()  ).setSource(player3);
-        popupWindows.get(  playerInfo.get(3).getRole()  ).setSource(player4);
-        popupWindows.get(  playerInfo.get(4).getRole()  ).setSource(player5);
+        popupWindows.get(playerInfo.get(0).getRole()).setSource(player1);
+        popupWindows.get(playerInfo.get(1).getRole()).setSource(player2);
+        popupWindows.get(playerInfo.get(2).getRole()).setSource(player3);
+        popupWindows.get(playerInfo.get(3).getRole()).setSource(player4);
+        popupWindows.get(playerInfo.get(4).getRole()).setSource(player5);
         if (MafiaApp.getTotalPlayers() > 5) {
             switch (MafiaApp.getTotalPlayers()) {
                 case 6:
-                    popupWindows.get(  playerInfo.get(5).getRole()  ).setSource(player6);
+                    popupWindows.get(playerInfo.get(5).getRole()).setSource(player6);
                     break;
                 case 7:
-                    popupWindows.get(  playerInfo.get(5).getRole()  ).setSource(player6);
-                    popupWindows.get(  playerInfo.get(6).getRole()  ).setSource(player7);
+                    popupWindows.get(playerInfo.get(5).getRole()).setSource(player6);
+                    popupWindows.get(playerInfo.get(6).getRole()).setSource(player7);
                     break;
                 case 8:
-                    popupWindows.get(  playerInfo.get(5).getRole()  ).setSource(player6);
-                    popupWindows.get(  playerInfo.get(6).getRole()  ).setSource(player7);
-                    popupWindows.get(  playerInfo.get(7).getRole()  ).setSource(player8);
+                    popupWindows.get(playerInfo.get(5).getRole()).setSource(player6);
+                    popupWindows.get(playerInfo.get(6).getRole()).setSource(player7);
+                    popupWindows.get(playerInfo.get(7).getRole()).setSource(player8);
                     break;
                 case 9:
-                    popupWindows.get(  playerInfo.get(5).getRole()  ).setSource(player6);
-                    popupWindows.get(  playerInfo.get(6).getRole()  ).setSource(player7);
-                    popupWindows.get(  playerInfo.get(7).getRole()  ).setSource(player8);
-                    popupWindows.get(  playerInfo.get(8).getRole()  ).setSource(player9);
+                    popupWindows.get(playerInfo.get(5).getRole()).setSource(player6);
+                    popupWindows.get(playerInfo.get(6).getRole()).setSource(player7);
+                    popupWindows.get(playerInfo.get(7).getRole()).setSource(player8);
+                    popupWindows.get(playerInfo.get(8).getRole()).setSource(player9);
                     break;
                 default:
-                    popupWindows.get(  playerInfo.get(5).getRole()  ).setSource(player6);
-                    popupWindows.get(  playerInfo.get(6).getRole()  ).setSource(player7);
-                    popupWindows.get(  playerInfo.get(7).getRole()  ).setSource(player8);
-                    popupWindows.get(  playerInfo.get(8).getRole()  ).setSource(player9);
-                    popupWindows.get(  playerInfo.get(9).getRole()  ).setSource(player10);
+                    popupWindows.get(playerInfo.get(5).getRole()).setSource(player6);
+                    popupWindows.get(playerInfo.get(6).getRole()).setSource(player7);
+                    popupWindows.get(playerInfo.get(7).getRole()).setSource(player8);
+                    popupWindows.get(playerInfo.get(8).getRole()).setSource(player9);
+                    popupWindows.get(playerInfo.get(9).getRole()).setSource(player10);
                     break;
             }
         }
@@ -767,30 +766,45 @@ public class GameSceneController implements Initializable{
         if (numTotalPlayers > 5) {
             switch (numTotalPlayers) {
                 case 6:
-                    player7.setVisible(false); player7Icon.setVisible(false);
-                    player8.setVisible(false); player8Icon.setVisible(false);
-                    player9.setVisible(false); player9Icon.setVisible(false);
-                    player10.setVisible(false); player10Icon.setVisible(false);
+                    player7.setVisible(false);
+                    player7Icon.setVisible(false);
+                    player8.setVisible(false);
+                    player8Icon.setVisible(false);
+                    player9.setVisible(false);
+                    player9Icon.setVisible(false);
+                    player10.setVisible(false);
+                    player10Icon.setVisible(false);
                     break;
                 case 7:
-                    player8.setVisible(false); player8Icon.setVisible(false);
-                    player9.setVisible(false); player9Icon.setVisible(false);
-                    player10.setVisible(false); player10Icon.setVisible(false);
+                    player8.setVisible(false);
+                    player8Icon.setVisible(false);
+                    player9.setVisible(false);
+                    player9Icon.setVisible(false);
+                    player10.setVisible(false);
+                    player10Icon.setVisible(false);
                     break;
                 case 8:
-                    player9.setVisible(false); player9Icon.setVisible(false);
-                    player10.setVisible(false); player10Icon.setVisible(false);
+                    player9.setVisible(false);
+                    player9Icon.setVisible(false);
+                    player10.setVisible(false);
+                    player10Icon.setVisible(false);
                     break;
                 case 9:
-                    player10.setVisible(false); player10Icon.setVisible(false);
+                    player10.setVisible(false);
+                    player10Icon.setVisible(false);
                     break;
             }
         } else {
-            player6.setVisible(false); player6Icon.setVisible(false);
-            player7.setVisible(false); player7Icon.setVisible(false);
-            player8.setVisible(false); player8Icon.setVisible(false);
-            player9.setVisible(false); player9Icon.setVisible(false);
-            player10.setVisible(false); player10Icon.setVisible(false);
+            player6.setVisible(false);
+            player6Icon.setVisible(false);
+            player7.setVisible(false);
+            player7Icon.setVisible(false);
+            player8.setVisible(false);
+            player8Icon.setVisible(false);
+            player9.setVisible(false);
+            player9Icon.setVisible(false);
+            player10.setVisible(false);
+            player10Icon.setVisible(false);
         }
     }
 
@@ -806,29 +820,29 @@ public class GameSceneController implements Initializable{
         if (MafiaApp.getTotalPlayers() > 5) {
             switch (MafiaApp.getTotalPlayers()) {
                 case 6:
-                    player6.setText( playerInfo.get(5).getName() );
+                    player6.setText(playerInfo.get(5).getName());
                     break;
                 case 7:
-                    player6.setText( playerInfo.get(5).getName() );
-                    player7.setText( playerInfo.get(6).getName() );
+                    player6.setText(playerInfo.get(5).getName());
+                    player7.setText(playerInfo.get(6).getName());
                     break;
                 case 8:
-                    player6.setText( playerInfo.get(5).getName() );
-                    player7.setText( playerInfo.get(6).getName() );
-                    player8.setText( playerInfo.get(7).getName() );
+                    player6.setText(playerInfo.get(5).getName());
+                    player7.setText(playerInfo.get(6).getName());
+                    player8.setText(playerInfo.get(7).getName());
                     break;
                 case 9:
-                    player6.setText( playerInfo.get(5).getName() );
-                    player7.setText( playerInfo.get(6).getName() );
-                    player8.setText( playerInfo.get(7).getName() );
-                    player9.setText( playerInfo.get(8).getName() );
+                    player6.setText(playerInfo.get(5).getName());
+                    player7.setText(playerInfo.get(6).getName());
+                    player8.setText(playerInfo.get(7).getName());
+                    player9.setText(playerInfo.get(8).getName());
                     break;
                 default:
-                    player6.setText( playerInfo.get(5).getName() );
-                    player7.setText( playerInfo.get(6).getName() );
-                    player8.setText( playerInfo.get(7).getName() );
-                    player9.setText( playerInfo.get(8).getName() );
-                    player10.setText( playerInfo.get(9).getName() );
+                    player6.setText(playerInfo.get(5).getName());
+                    player7.setText(playerInfo.get(6).getName());
+                    player8.setText(playerInfo.get(7).getName());
+                    player9.setText(playerInfo.get(8).getName());
+                    player10.setText(playerInfo.get(9).getName());
                     break;
             }
         }
@@ -856,7 +870,7 @@ public class GameSceneController implements Initializable{
         List<Player> players = playerInfo;
         String role = players.get(playerPosition).getRole();
 
-        Image back = new Image(getClass().getResourceAsStream("backArrow.png"));
+        Image back = new Image(getClass().getResourceAsStream("../../images/backArrow.png"));
         ImageView backArrow = new ImageView(back);
         backArrow.setFitHeight(24);
         backArrow.setFitWidth(39);
@@ -942,7 +956,8 @@ public class GameSceneController implements Initializable{
         VBox layout = new VBox(20);
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: black;");
-        layout.setPrefHeight(600); layout.setPrefWidth(411);
+        layout.setPrefHeight(600);
+        layout.setPrefWidth(411);
 
         Label title = new Label("QUIT GAME");
         title.setFont(new Font("Arial", 30));
@@ -979,7 +994,7 @@ public class GameSceneController implements Initializable{
     /**
      * This method will kill one player each day, depending on who the players vote out.
      */
-    private void dayCycle(){
+    private void dayCycle() {
 
         updateScene();
         System.out.println("*DAY TIME*");
@@ -1007,38 +1022,48 @@ public class GameSceneController implements Initializable{
     // update buttons visibility whenever someone dies
     private void updateScene() {
 
-        for (Player player : playerInfo ) {
+        for (Player player : playerInfo) {
             if (player.getStatus() == 1 || player.getStatus() == 4) {
                 switch (player.getPlayPosition()) {
                     case 0:
-                        player1.setVisible(false); player1Icon.setVisible(false);
+                        player1.setVisible(false);
+                        player1Icon.setVisible(false);
                         break;
                     case 1:
-                        player2.setVisible(false); player2Icon.setVisible(false);
+                        player2.setVisible(false);
+                        player2Icon.setVisible(false);
                         break;
                     case 2:
-                        player3.setVisible(false); player3Icon.setVisible(false);
+                        player3.setVisible(false);
+                        player3Icon.setVisible(false);
                         break;
                     case 3:
-                        player4.setVisible(false); player4Icon.setVisible(false);
+                        player4.setVisible(false);
+                        player4Icon.setVisible(false);
                         break;
                     case 4:
-                        player5.setVisible(false); player5Icon.setVisible(false);
+                        player5.setVisible(false);
+                        player5Icon.setVisible(false);
                         break;
                     case 5:
-                        player6.setVisible(false); player6Icon.setVisible(false);
+                        player6.setVisible(false);
+                        player6Icon.setVisible(false);
                         break;
                     case 6:
-                        player7.setVisible(false); player7Icon.setVisible(false);
+                        player7.setVisible(false);
+                        player7Icon.setVisible(false);
                         break;
                     case 7:
-                        player8.setVisible(false); player8Icon.setVisible(false);
+                        player8.setVisible(false);
+                        player8Icon.setVisible(false);
                         break;
                     case 8:
-                        player9.setVisible(false); player9Icon.setVisible(false);
+                        player9.setVisible(false);
+                        player9Icon.setVisible(false);
                         break;
                     case 9:
-                        player10.setVisible(false); player10Icon.setVisible(false);
+                        player10.setVisible(false);
+                        player10Icon.setVisible(false);
                         break;
                 }
             }
@@ -1056,7 +1081,8 @@ public class GameSceneController implements Initializable{
         popupWindows.clear();
 
         StackPane gameOverLayout = new StackPane();
-        gameOverLayout.setPrefWidth(411); gameOverLayout.setPrefHeight(600);
+        gameOverLayout.setPrefWidth(411);
+        gameOverLayout.setPrefHeight(600);
         gameOverLayout.setStyle("-fx-background-color: black;");
 
         Label gameOverLabel = new Label("GAME OVER");
@@ -1065,7 +1091,7 @@ public class GameSceneController implements Initializable{
         gameOverLabel.setTranslateY(-100);
 
         Label winner = new Label(mafiaWin ? "The Mafia have taken control of the town" :
-            "The Mafia have all been killed");
+                "The Mafia have all been killed");
         winner.setFont(new Font("Arial", 15));
         winner.setTextFill(Paint.valueOf("white"));
 
@@ -1082,9 +1108,8 @@ public class GameSceneController implements Initializable{
     }
 
     private void goToMainMenu() {
-
         try {
-            StackPane mainMenu = FXMLLoader.load(getClass().getResource("ui/mainMenu.fxml"));
+            StackPane mainMenu = FXMLLoader.load(getClass().getResource("../ui/mainMenu.fxml"));
             gameSceneView.getChildren().setAll(mainMenu);
         } catch (IOException e) {
             e.printStackTrace();
@@ -1116,7 +1141,7 @@ public class GameSceneController implements Initializable{
     private void lynchPlayer(Player player) {
 
         playerInfo.get(player.getPlayPosition()).setStatus(4);
-        System.out.println("PLAYER " + (player.getPlayPosition()+1) + " got lynched");
+        System.out.println("PLAYER " + (player.getPlayPosition() + 1) + " got lynched");
         if (player.isMafia()) {
             int mafiaToRemove = -1;
             for (int count = 0; count < MafiaApp.mafiaMembers.size(); count++) {
@@ -1149,73 +1174,83 @@ public class GameSceneController implements Initializable{
         try {
             switch (player.getPlayPosition()) {
                 case 0:
-                    player1.setVisible(false); player1Icon.setVisible(false);
+                    player1.setVisible(false);
+                    player1Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(0).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(0).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 1:
-                    player2.setVisible(false); player2Icon.setVisible(false);
+                    player2.setVisible(false);
+                    player2Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(1).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(1).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 2:
-                    player3.setVisible(false); player3Icon.setVisible(false);
+                    player3.setVisible(false);
+                    player3Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(2).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(2).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 3:
-                    player4.setVisible(false); player4Icon.setVisible(false);
+                    player4.setVisible(false);
+                    player4Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(3).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(3).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 4:
-                    player5.setVisible(false); player5Icon.setVisible(false);
+                    player5.setVisible(false);
+                    player5Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(4).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(4).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 5:
-                    player6.setVisible(false); player6Icon.setVisible(false);
+                    player6.setVisible(false);
+                    player6Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(5).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(5).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 6:
-                    player7.setVisible(false); player7Icon.setVisible(false);
+                    player7.setVisible(false);
+                    player7Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(6).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(6).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 7:
-                    player8.setVisible(false); player8Icon.setVisible(false);
+                    player8.setVisible(false);
+                    player8Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(7).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(7).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 8:
-                    player9.setVisible(false); player9Icon.setVisible(false);
+                    player9.setVisible(false);
+                    player9Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(8).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(8).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
                 case 9:
-                    player10.setVisible(false); player10Icon.setVisible(false);
+                    player10.setVisible(false);
+                    player10Icon.setVisible(false);
                     popupWindows.remove(playerInfo.get(9).getRole());
                     popupToRemove = popupWindows.get(playerInfo.get(9).getRole());
-                    gameSceneView.getChildren().remove( popupToRemove );
+                    gameSceneView.getChildren().remove(popupToRemove);
                     break;
             }
         } catch (Exception e) {
             e.getMessage();
         }
 
-        boolean isGameOver = game.checkGameOver();
+        boolean isGameOver = gameSceneModel.getGame().checkGameOver();
         if (isGameOver)
-            gameOver(game.getMafiaWin());
+            gameOver(gameSceneModel.getGame().getMafiaWin());
 
         centralButton.setVisible(true);
         centralButton.setText("Continue");
@@ -1227,7 +1262,7 @@ public class GameSceneController implements Initializable{
      * This method runs the cycle for selecting a target for each player every night
      * If the status of the player is 1 or 4 (Both dead) will skip them as both a player an a target for each player
      */
-    private void nightCycle(){
+    private void nightCycle() {
 
         updateScene();
         resetNightCyclePopups();
@@ -1273,17 +1308,16 @@ public class GameSceneController implements Initializable{
 
         boolean proceed = true;
         for (Player player : playerInfo) {
-            if (Arrays.asList(canTarget).contains(player.getRole()) && player.getStatus()==0 ) {
+            if (Arrays.asList(gameSceneModel.getRolesThatCanTarget()).contains(player.getRole()) && player.getStatus() == 0) {
                 if (!player.getIsTargetSelected()) {
                     proceed = false;
                 }
             }
         }
         if (proceed) {
-            String story = game.resetStatus();
+            String story = gameSceneModel.getGame().resetStatus();
             displayStory(story);
-        }
-        else
+        } else
             showMissingChoicesDialog();
 
     }
@@ -1307,11 +1341,13 @@ public class GameSceneController implements Initializable{
     private void displayStory(String story) {
 
         StackPane storyLayout = new StackPane();
-        storyLayout.setPrefHeight(600); storyLayout.setPrefWidth(411);
+        storyLayout.setPrefHeight(600);
+        storyLayout.setPrefWidth(411);
         storyLayout.setStyle("-fx-background-color: black;");
 
         Label storyLabel = new Label((story.isEmpty()) ? "No one died yay." : story);
-        storyLabel.setPrefWidth(300); storyLabel.setPrefHeight(500);
+        storyLabel.setPrefWidth(300);
+        storyLabel.setPrefHeight(500);
         storyLabel.setWrapText(true);
         storyLabel.setTextFill(Paint.valueOf("white"));
         storyLabel.setTranslateY(-100);
@@ -1324,9 +1360,9 @@ public class GameSceneController implements Initializable{
         closeButton.setTranslateY(250);
 
         closeButton.setOnAction(e -> {
-            boolean isGameOver = game.checkGameOver();
+            boolean isGameOver = gameSceneModel.getGame().checkGameOver();
             if (isGameOver)
-                gameOver(game.getMafiaWin());
+                gameOver(gameSceneModel.getGame().getMafiaWin());
 
             gameSceneView.getChildren().removeAll(storyLayout, storyLabel, closeButton);
             dayCycle();

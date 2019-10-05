@@ -1,4 +1,4 @@
-package mafia.entities;
+package mafia.entities.player_roles;
 
 /**
  * This class stores the data of each player

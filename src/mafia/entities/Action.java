@@ -3,7 +3,7 @@ package mafia.entities;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static mafia.entities.MafiaApp.playerInfo;
+import static mafia.MafiaApp.playerInfo;
 
 /**
  * 2017-02-19.

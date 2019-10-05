@@ -19,8 +19,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import mafia.entities.MafiaApp;
-import mafia.entities.Player;
+import mafia.MafiaApp;
+import mafia.entities.player_roles.Player;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,8 +29,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import static mafia.entities.MafiaApp.mafiaMembers;
-import static mafia.entities.MafiaApp.playerInfo;
+import static mafia.MafiaApp.mafiaMembers;
+import static mafia.MafiaApp.playerInfo;
 
 /**
  * MainMenuController displays instructions and about page through popups.
@@ -62,11 +62,11 @@ public class MainMenuController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        String style = getClass().getResource("theme.css").toExternalForm();
+        String style = getClass().getResource("../theme.css").toExternalForm();
         mainMenuView.getStylesheets().add(style);
 
         // configure main menu buttons
-        Image back = new Image(getClass().getResourceAsStream("backArrow.png"));
+        Image back = new Image(getClass().getResourceAsStream("../../images/backArrow.png"));
         ImageView backArrow = new ImageView(back);
         backArrow.setFitHeight(24); backArrow.setFitWidth(39);
         backArrow.setOpacity(0.46);
@@ -173,7 +173,7 @@ public class MainMenuController implements Initializable {
     private void displayMainMenuView() {
 
         try {
-            StackPane mainMenuFXML = FXMLLoader.load(getClass().getResource("ui/mainMenu.fxml"));
+            StackPane mainMenuFXML = FXMLLoader.load(getClass().getResource("../ui/mainMenu.fxml"));
             mainMenuView.getChildren().setAll(mainMenuFXML);
         } catch (IOException e) {
             e.printStackTrace();
@@ -194,7 +194,7 @@ public class MainMenuController implements Initializable {
 
         textFieldsContainer.getChildren().add(enterNamesLabel);
 
-        Image next = new Image(getClass().getResourceAsStream("backArrow.png"));
+        Image next = new Image(getClass().getResourceAsStream("../../images/backArrow.png"));
         ImageView nextArrow = new ImageView(next);
         nextArrow.setFitHeight(24); nextArrow.setFitWidth(39);
         nextArrow.setOpacity(0.46);
@@ -313,7 +313,7 @@ public class MainMenuController implements Initializable {
 
         roleAssignmentTask.setOnSucceeded(e -> {
             try {
-                StackPane gameScene = FXMLLoader.load(getClass().getResource("ui/gameScene.fxml"));
+                StackPane gameScene = FXMLLoader.load(getClass().getResource("../ui/gameScene.fxml"));
                 mainMenuView.getChildren().setAll(gameScene);
 
                 // TEMP

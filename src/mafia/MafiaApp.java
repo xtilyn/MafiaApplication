@@ -1,10 +1,12 @@
-package mafia.entities;
+package mafia;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mafia.entities.Story;
+import mafia.entities.player_roles.Player;
 
 import java.util.ArrayList;
 import java.util.List;

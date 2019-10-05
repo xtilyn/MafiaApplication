@@ -130,7 +130,7 @@
                <graphic>
                   <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../settingsIcon.png" />
+                        <Image url="@../../images/settingsIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
