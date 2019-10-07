@@ -303,28 +303,22 @@ public class MainMenuController implements Initializable {
     private void revealRoles() {
 
         mainMenuView.getChildren().add(loadingView);
-        Runnable onSuccess = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    StackPane gameScene = FXMLLoader.load(getClass().getResource("../ui/gameScene.fxml"));
-                    mainMenuView.getChildren().setAll(gameScene);
+        mainMenuModel.assignRoles();
+        try {
+            StackPane gameScene = FXMLLoader.load(getClass().getResource("../ui/gameScene.fxml"));
+            mainMenuView.getChildren().setAll(gameScene);
 
-                    // TEMP
-                    System.out.println(playerInfo.toString());
-                    int count = 1;
-                    System.out.println("ROLES-----------------------");
-                    for (Player player : playerInfo) {
-                        System.out.print("PLAYER " + count + ": " + player.getRole() + ", ");
-                        count++;
-                    }
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+            // TEMP
+            System.out.println(playerInfo.toString());
+            int count = 1;
+            System.out.println("ROLES-----------------------");
+            for (Player player : playerInfo) {
+                System.out.print("PLAYER " + count + ": " + player.getRole() + ", ");
+                count++;
             }
-        };
-        mainMenuModel.assignRoles(onSuccess);
-
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
 
 }

@@ -23,17 +23,13 @@ public class MainMenuModel {
         this.playerNames = playerNames;
     }
 
-    public void assignRoles(Runnable onSuccess) {
-        Task<Void> roleAssignmentTask = new RoleAssignmentTask(MafiaApp.getTotalPlayers());
-        Thread assign = new Thread(roleAssignmentTask);
-        assign.setDaemon(true);
-        assign.start();
-
-        roleAssignmentTask.setOnSucceeded(e -> onSuccess.run());
+    public void assignRoles() {
+        RoleAssignmentTask roleAssignmentTask = new RoleAssignmentTask(MafiaApp.getTotalPlayers());
+        roleAssignmentTask.assignRoles();
     }
 }
 
-class RoleAssignmentTask extends Task<Void> {
+class RoleAssignmentTask {
 
     private static int totalPlayers;
 
@@ -164,16 +160,9 @@ class RoleAssignmentTask extends Task<Void> {
         }
     }
 
-    @Override
-    protected Void call() throws Exception {
+    public void assignRoles() {
         playerAssignment();
         roleOfPlayers(assignments, assignmentsInfo, assignmentsGoals);
-        return null;
     }
 
-    @Override
-    protected void failed() {
-        System.out.println("role assignment task failed");
-        super.failed();
-    }
 }
