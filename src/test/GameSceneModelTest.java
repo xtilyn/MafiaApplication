@@ -19,7 +19,7 @@ public class GameSceneModelTest {
         mafiaApp = new MafiaApp();
         gameSceneModel = new GameSceneModel(mafiaApp);
         MafiaApp.setTotalPlayers(5);
-        MafiaApp.playerInfo = TestHelper.getDummyPlayers();
+        MafiaApp.playerInfo = TestHelper.getDummyPlayers(5);
     }
 
     @AfterAll

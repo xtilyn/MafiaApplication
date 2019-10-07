@@ -50,7 +50,7 @@ public class GameSceneController implements Initializable {
     private HashMap<String, JFXPopup> popupWindows = new HashMap<>();
 
     // the message the GodFather can give to Mafia members the next night
-    private TextField mafiaMessage = new TextField();
+    private TextField mafiaMessage;
 
     @FXML
     private Button centralButton;
@@ -106,9 +106,18 @@ public class GameSceneController implements Initializable {
     @FXML
     private ImageView player10Icon;
 
+    public VBox vigilanteView;
+    public VBox godfatherView;
+    public VBox bodyguardView;
+    public VBox barmanView;
+    public VBox doctorView;
+    public VBox hitmanView;
+    public VBox detectiveView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        mafiaMessage = new TextField();
 
         MafiaApp game = new MafiaApp();
         gameSceneModel = new GameSceneModel(game);
@@ -164,19 +173,24 @@ public class GameSceneController implements Initializable {
         }
     }
 
+    public VBox createNightCyclePopup() {
+        VBox nightCyclePlayerPopup = new VBox(10);
+        nightCyclePlayerPopup.setStyle("-fx-background-color: black;");
+        nightCyclePlayerPopup.setPrefHeight(300);
+        nightCyclePlayerPopup.setPrefWidth(411);
+        nightCyclePlayerPopup.setAlignment(Pos.TOP_CENTER);
+        nightCyclePlayerPopup.setPadding(new Insets(20, 0, 0, 0));
+        nightCyclePlayerPopup.setTranslateY(300);
+        return nightCyclePlayerPopup;
+    }
+
     // temporary layout for vigilante
-    private void resetVigilantePopup() {
+    public void resetVigilantePopup() throws NullPointerException{
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Vigilante");
         ((Vigilante) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        VBox vigilanteView = new VBox(10);
-        vigilanteView.setStyle("-fx-background-color: black;");
-        vigilanteView.setPrefHeight(300);
-        vigilanteView.setPrefWidth(411);
-        vigilanteView.setAlignment(Pos.TOP_CENTER);
-        vigilanteView.setPadding(new Insets(20, 0, 0, 0));
-        vigilanteView.setTranslateY(300);
+        vigilanteView = createNightCyclePopup();
 
         Label selectTargetLabel = new Label("Select your target");
         selectTargetLabel.setFont(new Font("Arial", 20));
@@ -214,9 +228,14 @@ public class GameSceneController implements Initializable {
 
         vigilanteView.getChildren().setAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Vigilante").getChildren().add(vigilanteView);
+        int finalMyPosition = myPosition;
         enterButton.setOnAction(e -> {
 
-            ((Vigilante) playerInfo.get(myPosition)).setIsTargetSelected(true);
+            try {
+                ((Vigilante) playerInfo.get(finalMyPosition)).setIsTargetSelected(true);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("VIGILANTE'S TARGET: " + myTarget);
@@ -237,14 +256,9 @@ public class GameSceneController implements Initializable {
     }
 
     // temporary layout for godfather
-    private void resetGodfatherPopup() {
+    public void resetGodfatherPopup() throws NullPointerException {
 
-        VBox godfatherView = new VBox(10);
-        godfatherView.setPrefHeight(233);
-        godfatherView.setPrefWidth(411);
-        godfatherView.setAlignment(Pos.TOP_CENTER);
-        godfatherView.setTranslateY(365);
-        godfatherView.setStyle("-fx-background-color: black;");
+        godfatherView = createNightCyclePopup();
 
         Label enterMessageLbl = new Label("Send message to other mafia members");
         enterMessageLbl.setFont(new Font("Arial", 20));
@@ -278,18 +292,12 @@ public class GameSceneController implements Initializable {
     }
 
     // temporary layout for bodyguard
-    private void resetBodyguardPopup() {
+    public void resetBodyguardPopup() throws NullPointerException {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Bodyguard");
         ((Bodyguard) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        VBox bodyguardView = new VBox(10);
-        bodyguardView.setPrefHeight(300);
-        bodyguardView.setPrefWidth(411);
-        bodyguardView.setAlignment(Pos.TOP_CENTER);
-        bodyguardView.setPadding(new Insets(20, 0, 0, 0));
-        bodyguardView.setTranslateY(300);
-        bodyguardView.setStyle("-fx-background-color: black;");
+        bodyguardView = createNightCyclePopup();
 
         Label selectTargetLabel = new Label("Select your target");
         selectTargetLabel.setFont(new Font("Arial", 20));
@@ -349,17 +357,12 @@ public class GameSceneController implements Initializable {
     }
 
     // temporary layout for barman
-    private void resetBarmanPopup() {
+    public void resetBarmanPopup() throws NullPointerException {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Mafia- Barman");
         ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        VBox barmanView = new VBox(10);
-        barmanView.setPrefHeight(233);
-        barmanView.setPrefWidth(411);
-        barmanView.setAlignment(Pos.TOP_CENTER);
-        barmanView.setTranslateY(365);
-        barmanView.setStyle("-fx-background-color: black;");
+        barmanView = createNightCyclePopup();
 
         Label selectTargetLabel = new Label("Select your target");
         selectTargetLabel.setFont(new Font("Arial", 20));
@@ -429,18 +432,12 @@ public class GameSceneController implements Initializable {
     }
 
     // temporary layout for the doctor
-    private void resetDoctorPopup() {
+    public void resetDoctorPopup() throws NullPointerException {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Doctor");
         ((Doctor) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        VBox doctorView = new VBox(10);
-        doctorView.setPrefHeight(300);
-        doctorView.setPrefWidth(411);
-        doctorView.setAlignment(Pos.TOP_CENTER);
-        doctorView.setPadding(new Insets(20, 0, 0, 0));
-        doctorView.setTranslateY(300);
-        doctorView.setStyle("-fx-background-color: black;");
+        doctorView = createNightCyclePopup();
 
         Label selectTargetLabel = new Label("Select your target");
         selectTargetLabel.setFont(new Font("Arial", 20));
@@ -500,17 +497,12 @@ public class GameSceneController implements Initializable {
     }
 
     // temporary layout for hitman
-    private void resetHitmanPopup() {
+    public void resetHitmanPopup() throws NullPointerException {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Mafia: Hitman");
         ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        VBox hitmanView = new VBox(10);
-        hitmanView.setPrefHeight(233);
-        hitmanView.setPrefWidth(411);
-        hitmanView.setAlignment(Pos.TOP_CENTER);
-        hitmanView.setTranslateY(365);
-        hitmanView.setStyle("-fx-background-color: black;");
+        hitmanView = createNightCyclePopup();
 
         Label selectTargetLabel = new Label("Select your target");
         selectTargetLabel.setFont(new Font("Arial", 20));
@@ -579,18 +571,12 @@ public class GameSceneController implements Initializable {
     }
 
     // temporary layout for detective
-    private void resetDetectivePopup() {
+    public void resetDetectivePopup() throws NullPointerException {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Detective");
         ((Detective) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        VBox detectiveView = new VBox(10);
-        detectiveView.setPrefHeight(300);
-        detectiveView.setPrefWidth(411);
-        detectiveView.setAlignment(Pos.TOP_CENTER);
-        detectiveView.setPadding(new Insets(20, 0, 0, 0));
-        detectiveView.setTranslateY(300);
-        detectiveView.setStyle("-fx-background-color: black;");
+        detectiveView = createNightCyclePopup();
 
         Label selectTargetLabel = new Label("Select your target");
         selectTargetLabel.setFont(new Font("Arial", 20));
@@ -1388,5 +1374,12 @@ public class GameSceneController implements Initializable {
         gameSceneView.getChildren().addAll(storyLayout);
     }
 
+    public GameSceneModel getGameSceneModel() {
+        return gameSceneModel;
+    }
+
+    public void setGameSceneModel(GameSceneModel gameSceneModel) {
+        this.gameSceneModel = gameSceneModel;
+    }
 
 }

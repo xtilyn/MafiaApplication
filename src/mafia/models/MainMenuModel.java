@@ -37,6 +37,10 @@ public class MainMenuModel {
             MafiaApp.playerInfo.get(i).setPlayPosition(i);
             MafiaApp.playerInfo.get(i).setStatus(PlayerStatus.ALIVE);
             MafiaApp.playerInfo.get(i).setInBar(false);
+            if(MafiaApp.playerInfo.get(i) instanceof Mafia){
+                //This is a list of the names, used at night to display the ALL Mafia members to other Mafia members
+                MafiaApp.mafiaMembers.add(MafiaApp.playerInfo.get(i).getName());
+            }
         }
     }
 }
@@ -60,12 +64,6 @@ class RoleAssignmentTask {
         //Loops through all of the players and assigns them a Role, Info and Goal
         for(int i=0; i< totalPlayers; i++){
             MafiaApp.playerInfo.add(roles.get(i));
-
-            if(MafiaApp.playerInfo.get(i).getRole().contains("Mafia")){
-                //This is a list of the names, used at night to display the ALL Mafia members to other Mafia members
-                MafiaApp.mafiaMembers.add(MafiaApp.playerInfo.get(i).getName());
-
-            }
         }
 
     }

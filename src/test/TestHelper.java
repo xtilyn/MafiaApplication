@@ -9,16 +9,15 @@ import java.util.List;
 
 public class TestHelper {
 
-    public static List<Player> getDummyPlayers() {
+    public static List<Player> getDummyPlayers(int numPlayers) {
 
-        int i = 0;
+        String[] names = getDummyNames();
         List<Player> players = getDummyRoles();
-        for (String name : getDummyNames()) {
+        for (int i = 0; i<numPlayers; i++) {
             Player newPlayer = players.get(i);
-            newPlayer.setName(name);
+            newPlayer.setName(names[i]);
             newPlayer.setPlayPosition(i);
             players.add(newPlayer);
-            i++;
         }
         return players;
     }
@@ -30,7 +29,12 @@ public class TestHelper {
                         new Detective(),
                         new Doctor(),
                         new Mafia(MafiaType.MAFAIA_HITMAN),
-                        new Bodyguard()
+                        new Bodyguard(),
+                        new Survivor(),
+                        new Mafia(MafiaType.MAFIA_BARMAN),
+                        new Lyncher(),
+                        new Mafia(MafiaType.MAFIA_GODFATHER),
+                        new Vigilante()
                 )
         );
     }
@@ -41,7 +45,12 @@ public class TestHelper {
                 "sam",
                 "tim",
                 "hortons",
-                "mcdonaldo"
+                "mcdonaldo",
+                "sara",
+                "mcSara",
+                "haha",
+                "hehe",
+                "hoho"
         };
     }
 

@@ -26,7 +26,7 @@ public class MainMenuModelTest {
 
     @Test
     public void shouldAssignAtLeastOneMafiaRole() {
-        MafiaApp.playerInfo = TestHelper.getDummyPlayers();
+        MafiaApp.playerInfo = TestHelper.getDummyPlayers(5);
         mainMenuModel.setPlayerNames(TestHelper.getDummyNames());
         mainMenuModel.assignRoles();
         assert (MafiaApp.mafiaMembers.size() > 0);
