@@ -23,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import mafia.entities.Action;
 import mafia.MafiaApp;
+import mafia.entities.data_types.PlayerStatus;
 import mafia.entities.player_roles.*;
 import mafia.models.GameSceneModel;
 
@@ -206,7 +207,7 @@ public class GameSceneController implements Initializable {
         // add all of the available targets' names for vigilante in the listView
         // do not include the vigilante himself
         for (Player player : playerInfo) {
-            if (!player.getRole().equals("Vigilante") && player.getStatus() == 0) {
+            if (!player.getRole().equals("Vigilante") && player.getStatus() == PlayerStatus.ALIVE) {
                 availableTargets.getItems().add(player.getName());
             }
         }
@@ -319,7 +320,7 @@ public class GameSceneController implements Initializable {
         // add all of the available targets' names for Bodyguard in the listView
         // do not include the Bodyguard himself
         for (Player player : playerInfo) {
-            if (!player.getRole().equals("Bodyguard") && player.getStatus() == 0) {
+            if (!player.getRole().equals("Bodyguard") && player.getStatus() == PlayerStatus.ALIVE) {
                 availableTargets.getItems().add(player.getName());
             }
         }
@@ -399,7 +400,7 @@ public class GameSceneController implements Initializable {
         // add all of the available targets for Barman in the listView
         // do not include the Barman himself
         for (Player player : playerInfo) {
-            if (!player.getRole().equals("Mafia- Barman") && player.getStatus() == 0) {
+            if (!player.getRole().equals("Mafia- Barman") && player.getStatus() == PlayerStatus.ALIVE) {
                 availableTargets.getItems().add(player.getName());
             }
         }
@@ -470,7 +471,7 @@ public class GameSceneController implements Initializable {
         // add all of the available targets for doctor in the listView
         // do not include the doctor himself
         for (Player player : playerInfo) {
-            if (!player.getRole().equals("Doctor") && player.getStatus() == 0) {
+            if (!player.getRole().equals("Doctor") && player.getStatus() == PlayerStatus.ALIVE) {
                 availableTargets.getItems().add(player.getName());
             }
         }
@@ -550,7 +551,7 @@ public class GameSceneController implements Initializable {
         // add all of the available targets for Hitman in the listView
         // do not include the Hitman himself
         for (Player player : playerInfo) {
-            if (!player.getRole().equals("Mafia: Hitman") && player.getStatus() == 0) {
+            if (!player.getRole().equals("Mafia: Hitman") && player.getStatus() == PlayerStatus.ALIVE) {
                 availableTargets.getItems().add(player.getName());
             }
         }
@@ -620,7 +621,7 @@ public class GameSceneController implements Initializable {
         // add all of the available targets for detective in the listView
         // do not include the detective himself
         for (Player player : playerInfo) {
-            if (!player.getRole().equals("Detective") && player.getStatus() == 0) {
+            if (!player.getRole().equals("Detective") && player.getStatus() == PlayerStatus.ALIVE) {
                 availableTargets.getItems().add(player.getName());
             }
         }
@@ -1032,7 +1033,7 @@ public class GameSceneController implements Initializable {
     private void updateScene() {
 
         for (Player player : playerInfo) {
-            if (player.getStatus() == 1 || player.getStatus() == 4) {
+            if (player.getStatus() == PlayerStatus.DEAD || player.getStatus() == PlayerStatus.DEAD_FOR_MORE_THAN_ONE_TURN) {
                 switch (player.getPlayPosition()) {
                     case 0:
                         player1.setVisible(false);
@@ -1149,7 +1150,7 @@ public class GameSceneController implements Initializable {
 
     private void lynchPlayer(Player player) {
 
-        playerInfo.get(player.getPlayPosition()).setStatus(4);
+        playerInfo.get(player.getPlayPosition()).setStatus(PlayerStatus.DEAD);
         System.out.println("PLAYER " + (player.getPlayPosition() + 1) + " got lynched");
         if (player instanceof Mafia) {
             int mafiaToRemove = -1;

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-
 public class MainMenuModelTest {
 
     private static MafiaApp mafiaApp;
@@ -38,6 +37,8 @@ public class MainMenuModelTest {
         mainMenuModel.setPlayerNames(TestHelper.getDummyNames());
         mainMenuModel.assignRoles();
         int roleCount = (int) MafiaApp.playerInfo.stream().filter(player -> !player.getRoleInfo().isEmpty()).count();
+        System.out.println(roleCount);
+
         assert (roleCount == MafiaApp.getTotalPlayers());
     }
 

@@ -1,5 +1,6 @@
 package test;
 
+import mafia.entities.data_types.MafiaType;
 import mafia.entities.player_roles.*;
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.Method;
@@ -12,7 +13,7 @@ public class PlayerTest {
                 new Detective() instanceof Player &&
                 new Doctor() instanceof Player &&
                 new Lyncher() instanceof Player &&
-                new Mafia("Mafia: Hitman") instanceof Player &&
+                new Mafia(MafiaType.MAFAIA_HITMAN) instanceof Player &&
                 new Survivor() instanceof Player &&
                 new Townie() instanceof Player &&
                 new Vigilante() instanceof Player

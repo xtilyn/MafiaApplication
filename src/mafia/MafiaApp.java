@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mafia.entities.Story;
+import mafia.entities.data_types.PlayerStatus;
 import mafia.entities.player_roles.*;
 
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class MafiaApp extends Application {
 
         String story = "";
         for (Player player : playerInfo) {
-            if (player.getStatus() == 0) {
+            if (player.getStatus() == PlayerStatus.ALIVE) {
                 if (player instanceof Mafia) {
                     ((Mafia) player).setIsTargetSelected(false);
                     ((Mafia) player).setPlayerTarget(-1);
@@ -92,18 +93,18 @@ public class MafiaApp extends Application {
             }
 
             //If the player is in Protected status puts them into Alive Status (0)
-            if (player.getStatus() == 3) {
-                player.setStatus(0);
+            if (player.getStatus() == PlayerStatus.PROTECTED) {
+                player.setStatus(PlayerStatus.ALIVE);
 
                 //If the player is Dead prints the death story and puts them into Dead for more than one night status(4)
-            } else if (player.getStatus() == 1) {
+            } else if (player.getStatus() == PlayerStatus.DEAD) {
                 story += getEvent(player.getPlayPosition(), "dead");
-                player.setStatus(4);
+                player.setStatus(PlayerStatus.DEAD_FOR_MORE_THAN_ONE_TURN);
 
                 //If the player was Saved, prints the saved story and sets them to Alive status(0)
-            } else if (player.getStatus() == 2) {
+            } else if (player.getStatus() == PlayerStatus.HEALED) {
                 story += getEvent(player.getPlayPosition(), "alive");
-                player.setStatus(0);
+                player.setStatus(PlayerStatus.ALIVE);
             }
             player.setInBar(false);//Removes any  player that may have been in the bar out
         }
@@ -148,14 +149,14 @@ public class MafiaApp extends Application {
         int townTotal = 0;
         //loops through all of the players and counts the total amount of Mafia and town people that are alive at the end of the round (Status 0)
         for (Player aPlayerInfo : playerInfo) {
-            if (aPlayerInfo.getRole().contains("Mafia") && aPlayerInfo.getStatus() == 0) {
+            if (aPlayerInfo.getRole().contains("Mafia") && aPlayerInfo.getStatus() == PlayerStatus.ALIVE) {
                 mafiaTotal += 1;
             } else if (
                     (aPlayerInfo.getRole().equals("Detective") || aPlayerInfo.getRole().equals("Doctor")
                             || aPlayerInfo.getRole().equals("Vigilante") || aPlayerInfo.getRole().equals("Townie")
                             || aPlayerInfo.getRole().equals("Survivor") || aPlayerInfo.getRole().equals("Bodyguard")
                             || aPlayerInfo.getRole().equals("Lyncher"))
-                            && aPlayerInfo.getStatus() == 0) {
+                            && aPlayerInfo.getStatus() == PlayerStatus.ALIVE) {
                 townTotal += 1;
             }
         }

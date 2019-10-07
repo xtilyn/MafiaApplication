@@ -1,5 +1,7 @@
 package mafia.entities;
 
+import mafia.entities.data_types.PlayerStatus;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -54,31 +56,31 @@ public class Action {
     }
 
     public void bodyguard(int target){
-        playerInfo.get(target).setStatus(3);
+        playerInfo.get(target).setStatus(PlayerStatus.PROTECTED);
     }
 
     public void hitman(int target){
         // if the target is protected, kill bodyguard instead
-        if (playerInfo.get(target).getStatus() == 3) {
+        if (playerInfo.get(target).getStatus() == PlayerStatus.PROTECTED) {
             int bodyguard = jobPoaitionMap.get("Bodyguard");
-            playerInfo.get(bodyguard).setStatus(1); //If the target was protected, bodyguard is killed instead
+            playerInfo.get(bodyguard).setStatus(PlayerStatus.DEAD); //If the target was protected, bodyguard is killed instead
         } else
-            playerInfo.get(target).setStatus(1); //Sets the target of the hitman to 1. this kills them :)
+            playerInfo.get(target).setStatus(PlayerStatus.DEAD); //Sets the target of the hitman to 1. this kills them :)
     }
 
     public void vigilante(int target){
         // if the target is protected, kill bodyguard instead
-        if (playerInfo.get(target).getStatus() == 3) {
+        if (playerInfo.get(target).getStatus() == PlayerStatus.PROTECTED) {
             int bodyguard = jobPoaitionMap.get("Bodyguard");
-            playerInfo.get(bodyguard).setStatus(1);
+            playerInfo.get(bodyguard).setStatus(PlayerStatus.DEAD);
         } else {
-            playerInfo.get(target).setStatus(1);
+            playerInfo.get(target).setStatus(PlayerStatus.DEAD);
         }
     }
 
     public void doctor(int target){
-        if(playerInfo.get(target).getStatus()==1){
-            playerInfo.get(target).setStatus(2);//Sets the status for the target of the doctor to 2. This saves them from death
+        if(playerInfo.get(target).getStatus()==PlayerStatus.DEAD){
+            playerInfo.get(target).setStatus(PlayerStatus.HEALED);//Sets the status for the target of the doctor to 2. This saves them from death
         }
     }
 

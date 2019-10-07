@@ -2,6 +2,7 @@ package test;
 
 import mafia.MafiaApp;
 import mafia.entities.Action;
+import mafia.entities.data_types.PlayerStatus;
 import mafia.entities.player_roles.Player;
 import mafia.models.GameSceneModel;
 import org.junit.jupiter.api.AfterAll;
@@ -49,7 +50,7 @@ public class GameSceneModelTest {
         String targetName = targetPlayer.getName();
 
         gameSceneModel.targetPlayer(targetName, "Mafia: Hitman", (i) -> {});
-        assert(targetPlayer.getStatus() == 1);
+        assert(targetPlayer.getStatus() == PlayerStatus.DEAD);
     }
 
 }

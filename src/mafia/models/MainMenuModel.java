@@ -2,6 +2,8 @@ package mafia.models;
 
 import javafx.concurrent.Task;
 import mafia.MafiaApp;
+import mafia.entities.data_types.MafiaType;
+import mafia.entities.data_types.PlayerStatus;
 import mafia.entities.player_roles.*;
 
 import java.util.ArrayList;
@@ -27,12 +29,13 @@ public class MainMenuModel {
     }
 
     public void assignRoles() {
+        MafiaApp.playerInfo.clear();
         RoleAssignmentTask roleAssignmentTask = new RoleAssignmentTask(MafiaApp.getTotalPlayers());
         roleAssignmentTask.assignRoles();
         for (int i = 0; i < MafiaApp.getTotalPlayers(); i++) {
             MafiaApp.playerInfo.get(i).setName(playerNames.get(i));
             MafiaApp.playerInfo.get(i).setPlayPosition(i);
-            MafiaApp.playerInfo.get(i).setStatus(0);//0:Alive | 1:Dead | 2:Heal | 3:Protected | 4:Dead for more than one night
+            MafiaApp.playerInfo.get(i).setStatus(PlayerStatus.ALIVE);
             MafiaApp.playerInfo.get(i).setInBar(false);
         }
     }
@@ -76,12 +79,12 @@ class RoleAssignmentTask {
 
         roles.add(new Townie());
         roles.add(new Detective());
-        roles.add(new Mafia("Mafia: Hitman"));
+        roles.add(new Mafia(MafiaType.MAFAIA_HITMAN));
         roles.add(new Doctor());
         roles.add(new Survivor());
 
         if (totalPlayers > 5){
-            roles.add(new Mafia("Mafia- Barman"));
+            roles.add(new Mafia(MafiaType.MAFIA_BARMAN));
         }
 
         if (totalPlayers > 6){
@@ -93,7 +96,7 @@ class RoleAssignmentTask {
         }
 
         if (totalPlayers > 8){
-            roles.add(new Mafia("Mafiaboss- GodFather"));
+            roles.add(new Mafia(MafiaType.MAFIA_GODFATHER));
         }
 
         if (totalPlayers > 9){

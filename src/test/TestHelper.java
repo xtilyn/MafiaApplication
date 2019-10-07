@@ -1,5 +1,6 @@
 package test;
 
+import mafia.entities.data_types.MafiaType;
 import mafia.entities.player_roles.*;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class TestHelper {
                         new Townie(),
                         new Detective(),
                         new Doctor(),
-                        new Mafia("Mafia: Hitman"),
+                        new Mafia(MafiaType.MAFAIA_HITMAN),
                         new Bodyguard()
                 )
         );

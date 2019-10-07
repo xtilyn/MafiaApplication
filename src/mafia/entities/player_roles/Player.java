@@ -1,12 +1,14 @@
 package mafia.entities.player_roles;
 
+import mafia.entities.data_types.PlayerStatus;
+
 /**
  * This class stores the data of each player
  */
 public abstract class Player {
 
     private int playPosition;
-    private int status;//0:Alive | 1:Dead | 2:Heal | 3:Protected | 4: Dead for more that one turn
+    private PlayerStatus status;
     private String name;
     private String roleInfo;
     private String goal;
@@ -20,7 +22,7 @@ public abstract class Player {
     public void setPlayPosition(int playPosition) {
         this.playPosition = playPosition;
     }
-    public void setStatus(int status) {
+    public void setStatus(PlayerStatus status) {
         this.status = status;
     }
     public void setRoleInfo(String roleInfo){
@@ -40,7 +42,7 @@ public abstract class Player {
     public int getPlayPosition() {
         return playPosition;
     }
-    public int getStatus() {
+    public PlayerStatus getStatus() {
         return status;
     }
     public String getRoleInfo(){
