@@ -82,15 +82,6 @@ public class Action {
         }
     }
 
-    public void godFather(){
-        int position = search("GodFather");
-        //If the player did not target someone or was stopped by the barman
-        //Do nothing
-        if(target(position)==-1||playerInfo.get(position).inBar()){
-        }else{
-            //TODO What does the GodFather do?
-        }
-    }
 
     /**
      * This loops through the list of players until it finds the indexValue for the position of the player (role)
@@ -107,16 +98,6 @@ public class Action {
         }
 
         return position;
-    }
-
-    /**
-     * position represents the index value of the player doing the action, ie Hitman
-     * @return target, index value of target players position in list PlayerInfo
-     */
-    public int target(int position){
-        int target;
-        target = playerInfo.get(position).getPlayerTarget();
-        return target;
     }
 
 }

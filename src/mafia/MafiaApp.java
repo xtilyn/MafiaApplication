@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mafia.entities.Story;
-import mafia.entities.player_roles.Player;
+import mafia.entities.player_roles.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,23 +50,13 @@ public class MafiaApp extends Application {
     static void roleOfPlayers(List<String> roles, List<String> rolesInfo, List<String> goals) {
 
         //Loops through all of the players and assigns them a Role, Info and Goal
-        for(int i=0; i< totalPlayers; i++){
+        for (int i = 0; i < totalPlayers; i++) {
             playerInfo.get(i).setRole(roles.get(i));
             playerInfo.get(i).setRoleInfo(rolesInfo.get(i));
             playerInfo.get(i).setGoal(goals.get(i));
-            //If the String role of the player contains the word "Mafia:"
-            if(playerInfo.get(i).getRole().contains("Mafia:")){
-                //This boolean is for the detective checking if the target is part of the Mafia
-                //GodFather is not included,z as he is hidden from the detective
-                playerInfo.get(i).setIsMafia(true);
-
-            }else{
-                playerInfo.get(i).setIsMafia(false);
-            }
-            if(playerInfo.get(i).getRole().contains("Mafia")){
+            if (playerInfo.get(i).getRole().contains("Mafia")) {
                 //This is a list of the names, used at night to display the ALL Mafia members to other Mafia members
                 mafiaMembers.add(playerInfo.get(i).getName());
-
             }
         }
 
@@ -82,29 +72,40 @@ public class MafiaApp extends Application {
 
         String story = "";
         for (Player player : playerInfo) {
-            if ((player.getRole().equals("Mafia: Hitman") || player.getRole().equals("Doctor") ||
-                    player.getRole().equals("Mafia- Barman") || player.getRole().equals("Bodyguard") ||
-                    player.getRole().equals("Vigilante") || player.getRole().equals("Detective"))
-                    && player.getStatus()==0) {
-                player.setIsTargetSelected(false);
+            if (player.getStatus() == 0) {
+                if (player instanceof Mafia) {
+                    ((Mafia) player).setIsTargetSelected(false);
+                    ((Mafia) player).setPlayerTarget(-1);
+                } else if (player instanceof Doctor) {
+                    ((Doctor) player).setIsTargetSelected(false);
+                    ((Doctor) player).setPlayerTarget(-1);
+                } else if (player instanceof Bodyguard) {
+                    ((Bodyguard) player).setIsTargetSelected(false);
+                    ((Bodyguard) player).setPlayerTarget(-1);
+                } else if (player instanceof Vigilante) {
+                    ((Vigilante) player).setIsTargetSelected(false);
+                    ((Vigilante) player).setPlayerTarget(-1);
+                } else if (player instanceof Detective) {
+                    ((Detective) player).setIsTargetSelected(false);
+                    ((Detective) player).setPlayerTarget(-1);
+                }
             }
+
             //If the player is in Protected status puts them into Alive Status (0)
-            if(player.getStatus()==3){
+            if (player.getStatus() == 3) {
                 player.setStatus(0);
 
                 //If the player is Dead prints the death story and puts them into Dead for more than one night status(4)
-            }else if(player.getStatus()==1){
-                story += getEvent(player.getPlayPosition(),"dead");
+            } else if (player.getStatus() == 1) {
+                story += getEvent(player.getPlayPosition(), "dead");
                 player.setStatus(4);
 
                 //If the player was Saved, prints the saved story and sets them to Alive status(0)
-            }else if(player.getStatus()==2){
-                story += getEvent(player.getPlayPosition(),"alive");
+            } else if (player.getStatus() == 2) {
+                story += getEvent(player.getPlayPosition(), "alive");
                 player.setStatus(0);
             }
             player.setInBar(false);//Removes any  player that may have been in the bar out
-            player.setPlayerTarget(-1);//Resets the target for each player
-
         }
         return story;
     }
@@ -112,16 +113,17 @@ public class MafiaApp extends Application {
     /**
      * This method determines the death message of any player that may have died during the night
      * Then prints that they were either killed by the attacker or saved by the doctor
+     *
      * @param player, status
      */
-    private String getEvent(int player, String status){
+    private String getEvent(int player, String status) {
 
         String name = playerInfo.get(player).getName();
         Story s = new Story(name);
         s.initialScenario();
-        if(status.equals("dead")){
+        if (status.equals("dead")) {
             s.dead();
-        }else if (status.equals("alive")){
+        } else if (status.equals("alive")) {
             s.healed();
         }
         String story = s.printStory();
@@ -139,7 +141,7 @@ public class MafiaApp extends Application {
      * If there is no Mafia members left, the game is over and the town members win
      * If the Mafia has more players then the game is over and the Mafia wins
      */
-    public boolean checkGameOver(){
+    public boolean checkGameOver() {
         // Game Over
         boolean gameOver = false;
         int mafiaTotal = 0;
@@ -157,37 +159,18 @@ public class MafiaApp extends Application {
                 townTotal += 1;
             }
         }
-        if(mafiaTotal==0){
+        if (mafiaTotal == 0) {
             mafiaWin = false;
             gameOver = true; //Stops the game if there are no Mafia members alive
-        }else if(mafiaTotal > townTotal){
+        } else if (mafiaTotal > townTotal) {
             mafiaWin = true;
             gameOver = true;
         }
         return gameOver;
     }
 
-    /**
-     * Asks the user to input the name of each player followed by enter
-     * Sets the play position of each player to the order then names were inputed
-     * Sets the status of each player to be alive. As each player starts out alive in the game
-     * Sets the inBar (The barman has stopped them from doing their action tonight) status to false for each player
-     */
-    public static void nameOfPlayers(List<String> playerNames){
-
-        for(int i =0; i<totalPlayers; i++){
-            Player p = new Player();
-            playerInfo.add(p);
-            playerInfo.get(i).setName(playerNames.get(i));
-            playerInfo.get(i).setPlayPosition(i);
-            playerInfo.get(i).setStatus(0);//0:Alive | 1:Dead | 2:Heal | 3:Protected | 4:Dead for more than one night
-            playerInfo.get(i).setInBar(false);
-
-        }
-    }
-
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("ui/mainMenu.fxml"));
         Scene scene = new Scene(root, WIDTH, HEIGHT);

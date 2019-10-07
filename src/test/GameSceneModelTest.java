@@ -8,8 +8,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.IntConsumer;
-
 public class GameSceneModelTest {
 
     private static MafiaApp mafiaApp;
@@ -31,8 +29,6 @@ public class GameSceneModelTest {
 
     @Test
     public void shouldAssignPlayersPositionsInOrder() {
-        assignDummyRoles();
-
         gameSceneModel.initJobPositionMap();
         int expectedSum = 10; // sum of all indices from 0 - 4 inclusive (5 players)
         int sum = 0;
@@ -41,14 +37,6 @@ public class GameSceneModelTest {
             sum += gameSceneModel.getJobPositionMap().get(playerRole);
         }
         assert(sum == expectedSum);
-    }
-
-    private void assignDummyRoles() {
-        final int[] count = {0};
-        MafiaApp.playerInfo.forEach(player -> {
-            player.setRole(TestHelper.getDummyRoles()[count[0]]);
-            count[0]++;
-        });
     }
 
     @Test

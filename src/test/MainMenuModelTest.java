@@ -17,7 +17,6 @@ public class MainMenuModelTest {
         mafiaApp = new MafiaApp();
         mainMenuModel = new MainMenuModel();
         MafiaApp.setTotalPlayers(5);
-        MafiaApp.playerInfo = TestHelper.getDummyPlayers();
     }
 
     @AfterAll
@@ -28,14 +27,17 @@ public class MainMenuModelTest {
 
     @Test
     public void shouldAssignAtLeastOneMafiaRole() {
+        MafiaApp.playerInfo = TestHelper.getDummyPlayers();
+        mainMenuModel.setPlayerNames(TestHelper.getDummyNames());
         mainMenuModel.assignRoles();
         assert (MafiaApp.mafiaMembers.size() > 0);
     }
 
     @Test
     public void allPlayersShouldHaveARole() {
+        mainMenuModel.setPlayerNames(TestHelper.getDummyNames());
         mainMenuModel.assignRoles();
-        int roleCount = (int) MafiaApp.playerInfo.stream().filter(player -> !player.getRole().isEmpty()).count();
+        int roleCount = (int) MafiaApp.playerInfo.stream().filter(player -> !player.getRoleInfo().isEmpty()).count();
         assert (roleCount == MafiaApp.getTotalPlayers());
     }
 

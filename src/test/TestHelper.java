@@ -1,24 +1,19 @@
 package test;
 
-import mafia.entities.player_roles.Player;
+import mafia.entities.player_roles.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestHelper {
 
     public static List<Player> getDummyPlayers() {
-        String[] dummyNames = new String[]{
-                "john",
-                "sam",
-                "tim",
-                "hortons",
-                "mcdonaldo"
-        };
+
         int i = 0;
-        List<Player> players = new ArrayList<>();
-        for (String name : dummyNames) {
-            Player newPlayer = new Player();
+        List<Player> players = getDummyRoles();
+        for (String name : getDummyNames()) {
+            Player newPlayer = players.get(i);
             newPlayer.setName(name);
             newPlayer.setPlayPosition(i);
             players.add(newPlayer);
@@ -27,13 +22,25 @@ public class TestHelper {
         return players;
     }
 
-    public static String[] getDummyRoles() {
+    public static List<Player> getDummyRoles() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        new Townie(),
+                        new Detective(),
+                        new Doctor(),
+                        new Mafia("Mafia: Hitman"),
+                        new Bodyguard()
+                )
+        );
+    }
+
+    public static String[] getDummyNames() {
         return new String[]{
-                "Townie",
-                "Detective",
-                "Doctor",
-                "Mafia: Hitman",
-                "Bodyguard"
+                "john",
+                "sam",
+                "tim",
+                "hortons",
+                "mcdonaldo"
         };
     }
 

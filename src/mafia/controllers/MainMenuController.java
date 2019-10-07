@@ -247,7 +247,6 @@ public class MainMenuController implements Initializable {
             showDialog();
         } else{
             playerInfo.clear();
-            MafiaApp.nameOfPlayers(mainMenuModel.getPlayerNames());
             revealRoles();
         }
 

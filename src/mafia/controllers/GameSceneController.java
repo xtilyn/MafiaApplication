@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import mafia.entities.Action;
 import mafia.MafiaApp;
-import mafia.entities.player_roles.Player;
+import mafia.entities.player_roles.*;
 import mafia.models.GameSceneModel;
 
 import java.io.IOException;
@@ -167,7 +167,7 @@ public class GameSceneController implements Initializable {
     private void resetVigilantePopup() {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Vigilante");
-        playerInfo.get(myPosition).setIsTargetSelected(false);
+        ((Vigilante) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
         VBox vigilanteView = new VBox(10);
         vigilanteView.setStyle("-fx-background-color: black;");
@@ -215,7 +215,7 @@ public class GameSceneController implements Initializable {
         popupWindows.get("Vigilante").getChildren().add(vigilanteView);
         enterButton.setOnAction(e -> {
 
-            playerInfo.get(myPosition).setIsTargetSelected(true);
+            ((Vigilante) playerInfo.get(myPosition)).setIsTargetSelected(true);
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("VIGILANTE'S TARGET: " + myTarget);
@@ -280,7 +280,7 @@ public class GameSceneController implements Initializable {
     private void resetBodyguardPopup() {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Bodyguard");
-        playerInfo.get(myPosition).setIsTargetSelected(false);
+        ((Bodyguard) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
         VBox bodyguardView = new VBox(10);
         bodyguardView.setPrefHeight(300);
@@ -329,7 +329,7 @@ public class GameSceneController implements Initializable {
 
         enterButton.setOnAction(e -> {
 
-            playerInfo.get(myPosition).setIsTargetSelected(true);
+            ((Bodyguard) playerInfo.get(myPosition)).setIsTargetSelected(true);
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("BODYGUARD'S TARGET: " + myTarget);
@@ -351,7 +351,7 @@ public class GameSceneController implements Initializable {
     private void resetBarmanPopup() {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Mafia- Barman");
-        playerInfo.get(myPosition).setIsTargetSelected(false);
+        ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
         VBox barmanView = new VBox(10);
         barmanView.setPrefHeight(233);
@@ -409,7 +409,7 @@ public class GameSceneController implements Initializable {
 
         enterButton.setOnAction(e -> {
 
-            playerInfo.get(myPosition).setIsTargetSelected(true);
+            ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(true);
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("BARMAN'S TARGET: " + myTarget);
@@ -431,7 +431,7 @@ public class GameSceneController implements Initializable {
     private void resetDoctorPopup() {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Doctor");
-        playerInfo.get(myPosition).setIsTargetSelected(false);
+        ((Doctor) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
         VBox doctorView = new VBox(10);
         doctorView.setPrefHeight(300);
@@ -480,7 +480,7 @@ public class GameSceneController implements Initializable {
 
         enterButton.setOnAction(e -> {
 
-            playerInfo.get(myPosition).setIsTargetSelected(true);
+            ((Doctor) playerInfo.get(myPosition)).setIsTargetSelected(true);
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("DOCTOR'S TARGET: " + myTarget);
@@ -502,7 +502,7 @@ public class GameSceneController implements Initializable {
     private void resetHitmanPopup() {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Mafia: Hitman");
-        playerInfo.get(myPosition).setIsTargetSelected(false);
+        ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
         VBox hitmanView = new VBox(10);
         hitmanView.setPrefHeight(233);
@@ -560,7 +560,7 @@ public class GameSceneController implements Initializable {
 
         enterButton.setOnAction(e -> {
 
-            playerInfo.get(myPosition).setIsTargetSelected(true);
+            ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(true);
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("HITMAN'S TARGET: " + myTarget);
@@ -581,7 +581,7 @@ public class GameSceneController implements Initializable {
     private void resetDetectivePopup() {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Detective");
-        playerInfo.get(myPosition).setIsTargetSelected(false);
+        ((Detective) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
         VBox detectiveView = new VBox(10);
         detectiveView.setPrefHeight(300);
@@ -630,7 +630,7 @@ public class GameSceneController implements Initializable {
 
         enterButton.setOnAction(e -> {
 
-            playerInfo.get(myPosition).setIsTargetSelected(true);
+            ((Detective) playerInfo.get(myPosition)).setIsTargetSelected(true);
             availableTargets.setDisable(true);
             String myTarget = availableTargets.getSelectionModel().getSelectedItem();
             System.out.println("DETECTIVE'S TARGET: " + myTarget);
@@ -654,7 +654,16 @@ public class GameSceneController implements Initializable {
     // if the player in inBar, set their popup such that they cannot perform any action
     private void setPlayerIsInBarPopup(int playerToStop) {
 
-        playerInfo.get(playerToStop).setIsTargetSelected(true);
+        try {
+            ((Mafia) playerInfo.get(playerToStop)).setIsTargetSelected(true);
+            ((Doctor) playerInfo.get(playerToStop)).setIsTargetSelected(true);
+            ((Bodyguard) playerInfo.get(playerToStop)).setIsTargetSelected(true);
+            ((Vigilante) playerInfo.get(playerToStop)).setIsTargetSelected(true);
+            ((Detective) playerInfo.get(playerToStop)).setIsTargetSelected(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         VBox inBarView = new VBox(20);
         inBarView.setPrefHeight(300);
         inBarView.setPrefWidth(411);
@@ -1142,7 +1151,7 @@ public class GameSceneController implements Initializable {
 
         playerInfo.get(player.getPlayPosition()).setStatus(4);
         System.out.println("PLAYER " + (player.getPlayPosition() + 1) + " got lynched");
-        if (player.isMafia()) {
+        if (player instanceof Mafia) {
             int mafiaToRemove = -1;
             for (int count = 0; count < MafiaApp.mafiaMembers.size(); count++) {
                 if (player.getName().equals(MafiaApp.mafiaMembers.get(count))) {
@@ -1308,10 +1317,16 @@ public class GameSceneController implements Initializable {
 
         boolean proceed = true;
         for (Player player : playerInfo) {
-            if (Arrays.asList(gameSceneModel.getRolesThatCanTarget()).contains(player.getRole()) && player.getStatus() == 0) {
-                if (!player.getIsTargetSelected()) {
-                    proceed = false;
-                }
+            if (player instanceof Mafia) {
+                proceed = ((Mafia) player).isTargetSelected();
+            } else if (player instanceof Doctor) {
+                proceed = ((Doctor) player).isTargetSelected();
+            } else if (player instanceof Bodyguard) {
+                proceed = ((Bodyguard) player).isTargetSelected();
+            } else if (player instanceof Vigilante) {
+                proceed = ((Vigilante) player).isTargetSelected();
+            } else if (player instanceof Detective) {
+                proceed = ((Detective) player).isTargetSelected();
             }
         }
         if (proceed) {
