@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85a77188-daae-478e-9b5a-dddcc77f684a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/MainMenuModelTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/TestHelper.java" afterDir="false" />
+    <list default="true" id="85a77188-daae-478e-9b5a-dddcc77f684a" name="Default Changelist" comment="refactored MainMenuController to use new MainMenuModel class">
+      <change afterPath="$PROJECT_DIR$/src/mafia/utils/CustomViewMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/MainMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/MainMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/RoleAssignmentTask.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/models/MainMenuModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/models/MainMenuModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/GameSceneControllerTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/GameSceneModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MafiaApplication/test/GameSceneModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mafia/controllers/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mafia/controllers/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mafia/models/MainMenuModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mafia/models/MainMenuModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GameSceneControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GameSceneModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GameSceneModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/MainMenuModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MafiaApplication/test/MainMenuModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/TestHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MafiaApplication/test/TestHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/GameSceneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GameSceneControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,19 +28,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mafia/MafiaApp.java">
+        <entry file="file://$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="183" column="18" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+            <state relative-caret-position="385">
+              <caret line="321" column="41" selection-start-line="321" selection-start-column="25" selection-end-line="321" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#50871#50872#0" expanded="true" />
+                <element signature="e#50991#50992#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/GameSceneModelTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/GameSceneControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="56" column="81" selection-start-line="56" selection-start-column="81" selection-end-line="56" selection-end-column="81" />
+            <state relative-caret-position="996">
+              <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,58 +54,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mafia/models/GameSceneModel.java">
+        <entry file="file://$PROJECT_DIR$/src/mafia/utils/CustomViewMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2532#2533#0" expanded="true" />
-                <element signature="e#2569#2570#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mafia/entities/Action.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="55" column="15" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
-              <folding>
-                <element signature="e#1480#1481#0" expanded="true" />
-                <element signature="e#1515#1516#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/TestHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state relative-caret-position="311">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mafia/controllers/MainMenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="320" column="9" selection-start-line="320" selection-start-column="9" selection-end-line="320" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -116,40 +71,43 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>RoleAssignmentTask</find>
-      <find>resetNightCyclePopups</find>
-      <find>initialize</find>
-      <find>action</find>
-      <find>jobPoaitionMap</find>
-      <find>jobPositionMap</find>
-      <find>initjobpositio</find>
-      <find>setTextFill</find>
-      <find>playerInfo</find>
-      <find>getplayer</find>
-      <find>backbu</find>
-      <find>extends</find>
-      <find>getresource</find>
-      <find>centralButton</find>
-      <find>showlynchpla</find>
-      <find>lynchplayer</find>
-      <find>showlum</find>
-      <find>roles</find>
-      <find>res</find>
-      <find>ui/</find>
-      <find>resetni</find>
-      <find>consumer</find>
-      <find>newGameContents</find>
-      <find>mafiaapp</find>
-      <find>playerinfo.add</find>
-      <find>setplayposi</find>
-      <find>getjobpo</find>
       <find>playerpositi</find>
+      <find>playerinfo.add</find>
+      <find>getjobpo</find>
+      <find>&quot;townie</find>
+      <find>cantarget</find>
+      <find>new player</find>
+      <find>aslist</find>
+      <find>nameofpla</find>
+      <find>assign</find>
+      <find>playerinfo</find>
+      <find>playernames =</find>
+      <find>playerNames</find>
+      <find>playernames</find>
+      <find>mafiaboss</find>
+      <find>mafiamembers.add</find>
+      <find>createpl</find>
+      <find>mafiaMessage</find>
+      <find>gameSceneModel =</find>
+      <find>createvi</find>
+      <find>roles.add</find>
+      <find>throws exc</find>
+      <find>barmanview =</find>
+      <find>mainmenu</find>
+      <find>new</find>
+      <find>hello</find>
+      <find>createni</find>
+      <find>.stream</find>
+      <find>.filter</find>
+      <find>mafiaapp</find>
+      <find>listvi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,14 +120,31 @@
         <option value="$PROJECT_DIR$/src/test/MafiaAppTest.kt" />
         <option value="$PROJECT_DIR$/src/mafia/entities/MafiaApp.java" />
         <option value="$PROJECT_DIR$/src/mafia/models/GameSceneModel.java" />
-        <option value="$PROJECT_DIR$/src/mafia/MafiaApp.java" />
         <option value="$PROJECT_DIR$/src/mafia/views/GameSceneView.java" />
-        <option value="$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java" />
-        <option value="$PROJECT_DIR$/src/mafia/models/MainMenuModel.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Townie.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Survivor.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Lyncher.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Doctor.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Bodyguard.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Vigilante.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Detective.java" />
         <option value="$PROJECT_DIR$/src/mafia/controllers/MainMenuController.java" />
-        <option value="$PROJECT_DIR$/src/test/MainMenuModelTest.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/data_types/MafiaType.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/data_types/PlayerStatus.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Player.java" />
+        <option value="$PROJECT_DIR$/src/mafia/MafiaApp.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/Action.java" />
+        <option value="$PROJECT_DIR$/src/test/AllTests.java" />
+        <option value="$PROJECT_DIR$/src/test/PlayerTest.java" />
+        <option value="$PROJECT_DIR$/src/mafia/entities/player_roles/Mafia.java" />
+        <option value="$PROJECT_DIR$/src/test/CustomDataClassTest.java" />
+        <option value="$PROJECT_DIR$/src/mafia/models/MainMenuModel.java" />
         <option value="$PROJECT_DIR$/src/test/TestHelper.java" />
         <option value="$PROJECT_DIR$/src/test/GameSceneModelTest.java" />
+        <option value="$PROJECT_DIR$/src/test/MainMenuModelTest.java" />
+        <option value="$PROJECT_DIR$/src/mafia/utils/CustomViewMaker.java" />
+        <option value="$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java" />
+        <option value="$PROJECT_DIR$/src/test/GameSceneControllerTest.java" />
       </list>
     </option>
   </component>
@@ -181,6 +156,7 @@
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -221,7 +197,23 @@
               <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mafia" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="data_types" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mafia" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mafia" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="MainMenuModel.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
@@ -234,7 +226,117 @@
               <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
               <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mafia" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="geometry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="scene" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="scene" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="scene" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="reflect" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="function" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -249,8 +351,8 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570417764431" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570503745315" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="terminal" />
@@ -273,13 +375,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GameSceneModelTest.shouldKillPlayerThatsNotInBar_IfTargetedByMafiaHitman">
+  <component name="RunManager" selected="JUnit.GameSceneControllerTest.targetersPopupsShouldContainsTargetsListView">
     <configuration name="MafiaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mafia.MafiaApp" />
       <module name="MafiaApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mafia.entities.player_roles.*" />
+          <option name="PATTERN" value="mafia.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -287,7 +389,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomDataClassTest.playerShouldHaveCorrectStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MafiaApplication" />
       <extension name="coverage">
         <pattern>
@@ -296,14 +398,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.GameSceneModelTest" />
-      <option name="METHOD_NAME" value="shouldAssignPlayersPositionsInOrder" />
+      <option name="MAIN_CLASS_NAME" value="test.CustomDataClassTest" />
+      <option name="METHOD_NAME" value="playerShouldHaveCorrectStatus" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameSceneModelTest.shouldKillPlayerThatsNotInBar_IfTargetedByMafiaHitman" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameSceneControllerTest.popupsShouldHaveTheSameBaseCharacteristics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MafiaApplication" />
       <extension name="coverage">
         <pattern>
@@ -312,14 +414,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.GameSceneModelTest" />
-      <option name="METHOD_NAME" value="shouldKillPlayerThatsNotInBar_IfTargetedByMafiaHitman" />
+      <option name="MAIN_CLASS_NAME" value="test.GameSceneControllerTest" />
+      <option name="METHOD_NAME" value="popupsShouldHaveTheSameBaseCharacteristics" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainMenuModelTest.allPlayersShouldHaveARole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameSceneControllerTest.shouldNotContainsJFXImports" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MafiaApplication" />
       <extension name="coverage">
         <pattern>
@@ -328,14 +430,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.MainMenuModelTest" />
-      <option name="METHOD_NAME" value="allPlayersShouldHaveARole" />
+      <option name="MAIN_CLASS_NAME" value="test.GameSceneControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotContainsJFXImports" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainMenuModelTest.shouldAssignAtLeastOneMafiaRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameSceneControllerTest.targetersPopupsShouldContainsTargetsListView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MafiaApplication" />
       <extension name="coverage">
         <pattern>
@@ -344,8 +446,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.MainMenuModelTest" />
-      <option name="METHOD_NAME" value="shouldAssignAtLeastOneMafiaRole" />
+      <option name="MAIN_CLASS_NAME" value="test.GameSceneControllerTest" />
+      <option name="METHOD_NAME" value="targetersPopupsShouldContainsTargetsListView" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -353,11 +455,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameSceneModelTest.shouldKillPlayerThatsNotInBar_IfTargetedByMafiaHitman" />
-        <item itemvalue="JUnit.GameSceneModelTest.shouldAssignPlayersPositionsInOrder" />
-        <item itemvalue="JUnit.MainMenuModelTest.allPlayersShouldHaveARole" />
-        <item itemvalue="JUnit.MainMenuModelTest.shouldAssignAtLeastOneMafiaRole" />
+        <item itemvalue="JUnit.GameSceneControllerTest.targetersPopupsShouldContainsTargetsListView" />
+        <item itemvalue="JUnit.GameSceneControllerTest.popupsShouldHaveTheSameBaseCharacteristics" />
+        <item itemvalue="JUnit.GameSceneControllerTest.shouldNotContainsJFXImports" />
         <item itemvalue="Application.MafiaApp" />
+        <item itemvalue="JUnit.CustomDataClassTest.playerShouldHaveCorrectStatus" />
       </list>
     </recent_temporary>
   </component>
@@ -386,47 +488,68 @@
       <option name="project" value="LOCAL" />
       <updated>1570408100073</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="extracted Player class to smaller subclasses and refactored affected classes.">
+      <created>1570425334338</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570425334338</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added new custom data objects">
+      <created>1570428248243</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570428248243</updated>
+    </task>
+    <task id="LOCAL-00005" summary="performed extract method refactoring in GameSceneController class">
+      <created>1570478298149</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570478298149</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 19h 53m 30s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_popupsShouldHaveTheSameBaseCharacteristics - 2019.10.07 at 13h 54m 19s.xml">
+      <configuration name="GameSceneControllerTest.popupsShouldHaveTheSameBaseCharacteristics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 00m 00s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_popupsShouldHaveTheSameBaseCharacteristics - 2019.10.07 at 13h 56m 22s.xml">
+      <configuration name="GameSceneControllerTest.popupsShouldHaveTheSameBaseCharacteristics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 01m 15s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_shouldNotContainsJFXImports - 2019.10.07 at 19h 20m 36s.xml">
+      <configuration name="GameSceneControllerTest.shouldNotContainsJFXImports" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 02m 19s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_shouldNotContainsJFXImports - 2019.10.07 at 19h 21m 24s.xml">
+      <configuration name="GameSceneControllerTest.shouldNotContainsJFXImports" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 02m 29s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_shouldNotContainsJFXImports - 2019.10.07 at 19h 51m 17s.xml">
+      <configuration name="GameSceneControllerTest.shouldNotContainsJFXImports" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 03m 38s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_shouldNotContainsJFXImports - 2019.10.07 at 19h 52m 09s.xml">
+      <configuration name="GameSceneControllerTest.shouldNotContainsJFXImports" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 05m 17s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_shouldNotContainsJFXImports - 2019.10.07 at 19h 56m 18s.xml">
+      <configuration name="GameSceneControllerTest.shouldNotContainsJFXImports" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 05m 35s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_targetersPopupsShouldContainsTargetsListView - 2019.10.07 at 20h 59m 07s.xml">
+      <configuration name="GameSceneControllerTest.targetersPopupsShouldContainsTargetsListView" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldAssignPlayersPositionsInOrder - 2019.10.06 at 20h 05m 44s.xml">
-      <configuration name="GameSceneModelTest.shouldAssignPlayersPositionsInOrder" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_targetersPopupsShouldContainsTargetsListView - 2019.10.07 at 20h 59m 34s.xml">
+      <configuration name="GameSceneControllerTest.targetersPopupsShouldContainsTargetsListView" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameSceneModelTest_shouldKillPlayerThatsNotInBar_IfTargetedByMafiaHitman - 2019.10.06 at 20h 16m 20s.xml">
-      <configuration name="GameSceneModelTest.shouldKillPlayerThatsNotInBar_IfTargetedByMafiaHitman" configurationId="JUnit" />
+    <history-entry file="GameSceneControllerTest_targetersPopupsShouldContainsTargetsListView - 2019.10.07 at 21h 00m 01s.xml">
+      <configuration name="GameSceneControllerTest.targetersPopupsShouldContainsTargetsListView" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1721" height="944" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56615776" visible="true" weight="0.25586995" />
-      <window_info id="Structure" order="1" sideWeight="0.43384224" side_tool="true" weight="0.25586995" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5654649" visible="true" weight="0.25586995" />
+      <window_info id="Structure" order="1" sideWeight="0.43453512" side_tool="true" visible="true" weight="0.25586995" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -458,7 +581,10 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="refactored GameSceneController to use new GameSceneModel class" />
     <MESSAGE value="refactored MainMenuController to use new MainMenuModel class" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored MainMenuController to use new MainMenuModel class" />
+    <MESSAGE value="extracted Player class to smaller subclasses and refactored affected classes." />
+    <MESSAGE value="added new custom data objects" />
+    <MESSAGE value="performed extract method refactoring in GameSceneController class" />
+    <option name="LAST_COMMIT_MESSAGE" value="performed extract method refactoring in GameSceneController class" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/fxml/Initializable.java">
@@ -479,13 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mafia/entities/Story.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="75" column="45" lean-forward="true" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -513,17 +632,187 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/GameSceneControllerTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.5.2/junit-jupiter-api-5.5.2.jar!/org/junit/jupiter/api/Test.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="552">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java">
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/Story.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="166" column="19" lean-forward="true" selection-start-line="166" selection-start-column="19" selection-end-line="166" selection-end-column="19" />
+        <state relative-caret-position="165">
+          <caret line="53" column="15" lean-forward="true" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.5.2/junit-jupiter-api-5.5.2.jar!/org/junit/jupiter/api/Assertions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="1504" column="21" lean-forward="true" selection-start-line="1504" selection-start-column="21" selection-end-line="1504" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Bodyguard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Doctor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding>
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Lyncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Survivor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Vigilante.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#687#688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+          <folding>
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="e#1673#1674#0" expanded="true" />
+            <element signature="e#1713#1714#0" expanded="true" />
+            <element signature="e#1745#1746#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="82" column="64" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
+          <folding>
+            <element signature="e#1503#1504#0" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/AllTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/CustomDataClassTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Mafia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="19" column="65" lean-forward="true" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
+          <folding>
+            <element signature="e#1452#1453#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1579#1580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/data_types/PlayerStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/data_types/MafiaType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/layout/VBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="221" column="11" selection-start-line="221" selection-start-column="11" selection-end-line="221" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Townie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Detective.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding>
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/MafiaApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -532,97 +821,122 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mafia/models/MainMenuModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="-305">
+          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mafia/controllers/MainMenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/GameSceneModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="320" column="9" selection-start-line="320" selection-start-column="9" selection-end-line="320" selection-end-column="9" />
+        <state relative-caret-position="-23">
+          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.5.2/junit-jupiter-api-5.5.2.jar!/org/junit/jupiter/api/Test.class">
+    <entry file="file://$PROJECT_DIR$/src/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        <state relative-caret-position="-569">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/MainMenuModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        <state relative-caret-position="253">
+          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mafia/entities/player_roles/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="55" column="15" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
-          <folding>
-            <element signature="e#1480#1481#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mafia/models/GameSceneModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="155">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2165#2166#0" expanded="true" />
+            <element signature="e#2197#2198#0" expanded="true" />
             <element signature="e#2532#2533#0" expanded="true" />
             <element signature="e#2569#2570#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mafia/MafiaApp.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="183" column="18" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+        <state relative-caret-position="249">
+          <caret line="1612" column="14" selection-start-line="1612" selection-start-column="14" selection-end-line="1612" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mafia/entities/Action.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        <state relative-caret-position="-4742">
+          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/GameSceneModelTest.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/geometry/Insets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="56" column="81" selection-start-line="56" selection-start-column="81" selection-end-line="56" selection-end-column="81" />
+        <state relative-caret-position="1242">
+          <caret line="77" column="11" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/controllers/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="898">
+          <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/utils/CustomViewMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mafia/controllers/GameSceneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="321" column="41" selection-start-line="321" selection-start-column="25" selection-end-line="321" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#50871#50872#0" expanded="true" />
+            <element signature="e#50991#50992#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/GameSceneControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="996">
+          <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -686,7 +1000,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

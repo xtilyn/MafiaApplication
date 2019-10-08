@@ -26,6 +26,7 @@ import mafia.MafiaApp;
 import mafia.entities.data_types.PlayerStatus;
 import mafia.entities.player_roles.*;
 import mafia.models.GameSceneModel;
+import mafia.utils.CustomViewMaker;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import static mafia.MafiaApp.mafiaMembers;
 import static mafia.MafiaApp.playerInfo;
@@ -173,66 +175,32 @@ public class GameSceneController implements Initializable {
         }
     }
 
-    public VBox createNightCyclePopup() {
-        VBox nightCyclePlayerPopup = new VBox(10);
-        nightCyclePlayerPopup.setStyle("-fx-background-color: black;");
-        nightCyclePlayerPopup.setPrefHeight(300);
-        nightCyclePlayerPopup.setPrefWidth(411);
-        nightCyclePlayerPopup.setAlignment(Pos.TOP_CENTER);
-        nightCyclePlayerPopup.setPadding(new Insets(20, 0, 0, 0));
-        nightCyclePlayerPopup.setTranslateY(300);
-        return nightCyclePlayerPopup;
-    }
-
     // temporary layout for vigilante
-    public void resetVigilantePopup() throws NullPointerException{
+    public void resetVigilantePopup() throws NullPointerException {
 
         int myPosition = gameSceneModel.getJobPositionMap().get("Vigilante");
         ((Vigilante) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        vigilanteView = createNightCyclePopup();
+        vigilanteView = CustomViewMaker.createNightCyclePopup();
+        Label selectTargetLabel = CustomViewMaker.createLabel("Select your target");
+        Label target = CustomViewMaker.createTargetLabel();
+        JFXButton enterButton = CustomViewMaker.createConfirmButton("CONFIRM");
 
-        Label selectTargetLabel = new Label("Select your target");
-        selectTargetLabel.setFont(new Font("Arial", 20));
-        selectTargetLabel.setTextFill(Paint.valueOf("white"));
-
-        Label target = new Label();
-        target.setTextFill(Paint.valueOf("white"));
-        target.setTextAlignment(TextAlignment.CENTER);
-        target.setFont(new Font("Arial", 20));
-
-        JFXButton enterButton = new JFXButton("CONFIRM");
-        enterButton.setFont(new Font("Arial", 15));
-        enterButton.setTextFill(Paint.valueOf("white"));
-        enterButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
-        enterButton.setVisible(false);
-
-        ListView<String> availableTargets = new ListView<>();
-        availableTargets.setMaxHeight(150);
-        availableTargets.getItems().add("No one");
-        // the enter button is hidden by default. Added a listener to the listView such that
-        // whenever user clicks on a selection, the enter button is set to visible
-        availableTargets.getSelectionModel().selectedItemProperty().addListener(
+        String[] targetNames = getTargetersAvailableTargets("Vigilante");
+        ListView<String> availableTargets = CustomViewMaker.createTargetsListView(
+                targetNames,
                 (v, oldSelection, newSelection) -> {
                     if (!enterButton.isVisible())
                         enterButton.setVisible(true);
                 }
         );
-        // add all of the available targets' names for vigilante in the listView
-        // do not include the vigilante himself
-        for (Player player : playerInfo) {
-            if (!player.getRole().equals("Vigilante") && player.getStatus() == PlayerStatus.ALIVE) {
-                availableTargets.getItems().add(player.getName());
-            }
-        }
 
         vigilanteView.getChildren().setAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Vigilante").getChildren().add(vigilanteView);
-        int finalMyPosition = myPosition;
         enterButton.setOnAction(e -> {
 
             try {
-                ((Vigilante) playerInfo.get(finalMyPosition)).setIsTargetSelected(true);
+                ((Vigilante) playerInfo.get(myPosition)).setIsTargetSelected(true);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -252,27 +220,23 @@ public class GameSceneController implements Initializable {
 
         });
 
+    }
 
+    private String[] getTargetersAvailableTargets(String targetersRole) {
+        return playerInfo.stream()
+                .filter(player -> !player.getRole().equals(targetersRole) && player.getStatus() == PlayerStatus.ALIVE)
+                .map(Player::getName)
+                .toArray(String[]::new);
     }
 
     // temporary layout for godfather
     public void resetGodfatherPopup() throws NullPointerException {
 
-        godfatherView = createNightCyclePopup();
+        godfatherView = CustomViewMaker.createNightCyclePopup();
 
-        Label enterMessageLbl = new Label("Send message to other mafia members");
-        enterMessageLbl.setFont(new Font("Arial", 20));
-        enterMessageLbl.setTextFill(Paint.valueOf("white"));
-
-        Label messageSentLbl = new Label("Message sent.");
-        messageSentLbl.setTextFill(Paint.valueOf("white"));
-        messageSentLbl.setTextAlignment(TextAlignment.CENTER);
-        messageSentLbl.setFont(new Font("Arial", 20));
-
-        JFXButton sendButton = new JFXButton("Send");
-        sendButton.setFont(new Font("Arial", 15));
-        sendButton.setTextFill(Paint.valueOf("white"));
-        sendButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
+        Label enterMessageLbl = CustomViewMaker.createLabel("Send message to other mafia members");
+        Label messageSentLbl = CustomViewMaker.createLabel("Message sent.", TextAlignment.CENTER);
+        JFXButton sendButton = CustomViewMaker.createConfirmButton("Send");
 
         godfatherView.getChildren().addAll(enterMessageLbl, sendButton);
 
@@ -297,41 +261,19 @@ public class GameSceneController implements Initializable {
         int myPosition = gameSceneModel.getJobPositionMap().get("Bodyguard");
         ((Bodyguard) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        bodyguardView = createNightCyclePopup();
+        bodyguardView = CustomViewMaker.createNightCyclePopup();
+        Label selectTargetLabel = CustomViewMaker.createLabel("Select your target");
+        Label target = CustomViewMaker.createTargetLabel();
+        JFXButton enterButton = CustomViewMaker.createConfirmButton("CONFIRM");
 
-        Label selectTargetLabel = new Label("Select your target");
-        selectTargetLabel.setFont(new Font("Arial", 20));
-        selectTargetLabel.setTextFill(Paint.valueOf("white"));
-
-        Label target = new Label();
-        target.setTextFill(Paint.valueOf("white"));
-        target.setTextAlignment(TextAlignment.CENTER);
-        target.setFont(new Font("Arial", 20));
-
-        JFXButton enterButton = new JFXButton("CONFIRM");
-        enterButton.setFont(new Font("Arial", 15));
-        enterButton.setTextFill(Paint.valueOf("white"));
-        enterButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
-        enterButton.setVisible(false);
-
-        ListView<String> availableTargets = new ListView<>();
-        availableTargets.setMaxHeight(150);
-        availableTargets.getItems().add("No one");
-        // the enter button is hidden by default. Added a listener to the listView such that
-        // whenever user clicks on a selection, the enter button is set to visible
-        availableTargets.getSelectionModel().selectedItemProperty().addListener(
+        String[] targets = getTargetersAvailableTargets("Bodyguard");
+        ListView<String> availableTargets = CustomViewMaker.createTargetsListView(
+                targets,
                 (v, oldSelection, newSelection) -> {
                     if (!enterButton.isVisible())
                         enterButton.setVisible(true);
                 }
         );
-        // add all of the available targets' names for Bodyguard in the listView
-        // do not include the Bodyguard himself
-        for (Player player : playerInfo) {
-            if (!player.getRole().equals("Bodyguard") && player.getStatus() == PlayerStatus.ALIVE) {
-                availableTargets.getItems().add(player.getName());
-            }
-        }
 
         bodyguardView.getChildren().addAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Bodyguard").getChildren().add(bodyguardView);
@@ -362,51 +304,28 @@ public class GameSceneController implements Initializable {
         int myPosition = gameSceneModel.getJobPositionMap().get("Mafia- Barman");
         ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        barmanView = createNightCyclePopup();
-
-        Label selectTargetLabel = new Label("Select your target");
-        selectTargetLabel.setFont(new Font("Arial", 20));
-        selectTargetLabel.setTextFill(Paint.valueOf("white"));
+        barmanView = CustomViewMaker.createNightCyclePopup();
+        Label selectTargetLabel = CustomViewMaker.createLabel("Select your target");
 
         // if there is a godfather, create a label to bind boss' message
         if (playerInfo.size() > 8) {
-            Label messageFromBoss = new Label("A message from the GodFather: ");
-            messageFromBoss.setTextFill(Paint.valueOf("white"));
-            Label msg = new Label();
-            msg.setTextFill(Paint.valueOf("white"));
+            Label messageFromBoss = CustomViewMaker.createSimpleLabel("A message from the GodFather: ");
+            Label msg = CustomViewMaker.createSimpleLabel("");
             msg.textProperty().bind(mafiaMessage.textProperty());
             barmanView.getChildren().addAll(messageFromBoss, msg);
         }
 
-        Label target = new Label();
-        target.setTextFill(Paint.valueOf("white"));
-        target.setTextAlignment(TextAlignment.CENTER);
-        target.setFont(new Font("Arial", 20));
+        Label target = CustomViewMaker.createTargetLabel();
+        JFXButton enterButton = CustomViewMaker.createConfirmButton("CONFIRM");
 
-        JFXButton enterButton = new JFXButton("CONFIRM");
-        enterButton.setFont(new Font("Arial", 15));
-        enterButton.setTextFill(Paint.valueOf("white"));
-        enterButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
-        enterButton.setVisible(false);
-
-        ListView<String> availableTargets = new ListView<>();
-        availableTargets.setMaxHeight(150);
-        availableTargets.getItems().add("No one");
-        // the enter button is hidden by default. Added a listener to the listView such that
-        // whenever user clicks on a selection, the enter button is set to visible
-        availableTargets.getSelectionModel().selectedItemProperty().addListener(
+        String[] targets = getTargetersAvailableTargets("Mafia- Barman");
+        ListView<String> availableTargets = CustomViewMaker.createTargetsListView(
+                targets,
                 (v, oldSelection, newSelection) -> {
                     if (!enterButton.isVisible())
                         enterButton.setVisible(true);
                 }
         );
-        // add all of the available targets for Barman in the listView
-        // do not include the Barman himself
-        for (Player player : playerInfo) {
-            if (!player.getRole().equals("Mafia- Barman") && player.getStatus() == PlayerStatus.ALIVE) {
-                availableTargets.getItems().add(player.getName());
-            }
-        }
 
         barmanView.getChildren().addAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Mafia- Barman").getChildren().add(barmanView);
@@ -437,41 +356,21 @@ public class GameSceneController implements Initializable {
         int myPosition = gameSceneModel.getJobPositionMap().get("Doctor");
         ((Doctor) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        doctorView = createNightCyclePopup();
+        doctorView = CustomViewMaker.createNightCyclePopup();
+        Label selectTargetLabel = CustomViewMaker.createLabel("Select your target");
+        Label target = CustomViewMaker.createTargetLabel();
+        JFXButton enterButton = CustomViewMaker.createConfirmButton("CONFIRM");
 
-        Label selectTargetLabel = new Label("Select your target");
-        selectTargetLabel.setFont(new Font("Arial", 20));
-        selectTargetLabel.setTextFill(Paint.valueOf("white"));
+        String[] targets = getTargetersAvailableTargets("Doctor");
 
-        Label target = new Label();
-        target.setTextFill(Paint.valueOf("white"));
-        target.setTextAlignment(TextAlignment.CENTER);
-        target.setFont(new Font("Arial", 20));
 
-        JFXButton enterButton = new JFXButton("CONFIRM");
-        enterButton.setFont(new Font("Arial", 15));
-        enterButton.setTextFill(Paint.valueOf("white"));
-        enterButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
-        enterButton.setVisible(false);
-
-        ListView<String> availableTargets = new ListView<>();
-        availableTargets.setMaxHeight(150);
-        availableTargets.getItems().add("No one");
-        // the enter button is hidden by default. Added a listener to the listView such that
-        // whenever user clicks on a selection, the enter button is set to visible
-        availableTargets.getSelectionModel().selectedItemProperty().addListener(
+        ListView<String> availableTargets = CustomViewMaker.createTargetsListView(
+                targets,
                 (v, oldSelection, newSelection) -> {
                     if (!enterButton.isVisible())
                         enterButton.setVisible(true);
                 }
         );
-        // add all of the available targets for doctor in the listView
-        // do not include the doctor himself
-        for (Player player : playerInfo) {
-            if (!player.getRole().equals("Doctor") && player.getStatus() == PlayerStatus.ALIVE) {
-                availableTargets.getItems().add(player.getName());
-            }
-        }
 
         doctorView.getChildren().addAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Doctor").getChildren().add(doctorView);
@@ -502,51 +401,28 @@ public class GameSceneController implements Initializable {
         int myPosition = gameSceneModel.getJobPositionMap().get("Mafia: Hitman");
         ((Mafia) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        hitmanView = createNightCyclePopup();
-
-        Label selectTargetLabel = new Label("Select your target");
-        selectTargetLabel.setFont(new Font("Arial", 20));
-        selectTargetLabel.setTextFill(Paint.valueOf("white"));
+        hitmanView = CustomViewMaker.createNightCyclePopup();
+        Label selectTargetLabel = CustomViewMaker.createLabel("Select your target");
 
         // if there is a godfather, create a label to bind boss' message
         if (playerInfo.size() > 8) {
-            Label messageFromBoss = new Label("A message from the GodFather: ");
-            messageFromBoss.setTextFill(Paint.valueOf("white"));
-            Label msg = new Label();
-            msg.setTextFill(Paint.valueOf("white"));
+            Label messageFromBoss = CustomViewMaker.createSimpleLabel("A message from the GodFather: ");
+            Label msg = CustomViewMaker.createSimpleLabel("");
             msg.textProperty().bind(mafiaMessage.textProperty());
             hitmanView.getChildren().addAll(messageFromBoss, msg);
         }
 
-        Label target = new Label();
-        target.setTextFill(Paint.valueOf("white"));
-        target.setTextAlignment(TextAlignment.CENTER);
-        target.setFont(new Font("Arial", 20));
+        Label target = CustomViewMaker.createTargetLabel();
+        JFXButton enterButton = CustomViewMaker.createConfirmButton("CONFIRM");
 
-        JFXButton enterButton = new JFXButton("CONFIRM");
-        enterButton.setFont(new Font("Arial", 15));
-        enterButton.setTextFill(Paint.valueOf("white"));
-        enterButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
-        enterButton.setVisible(false);
-
-        ListView<String> availableTargets = new ListView<>();
-        availableTargets.setMaxHeight(150);
-        availableTargets.getItems().add("No one");
-        // the enter button is hidden by default. Added a listener to the listView such that
-        // whenever user clicks on a selection, the enter button is set to visible
-        availableTargets.getSelectionModel().selectedItemProperty().addListener(
+        String[] targets = getTargetersAvailableTargets("Mafia: Hitman");
+        ListView<String> availableTargets = CustomViewMaker.createTargetsListView(
+                targets,
                 (v, oldSelection, newSelection) -> {
                     if (!enterButton.isVisible())
                         enterButton.setVisible(true);
                 }
         );
-        // add all of the available targets for Hitman in the listView
-        // do not include the Hitman himself
-        for (Player player : playerInfo) {
-            if (!player.getRole().equals("Mafia: Hitman") && player.getStatus() == PlayerStatus.ALIVE) {
-                availableTargets.getItems().add(player.getName());
-            }
-        }
 
         hitmanView.getChildren().addAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Mafia: Hitman").getChildren().add(hitmanView);
@@ -576,41 +452,21 @@ public class GameSceneController implements Initializable {
         int myPosition = gameSceneModel.getJobPositionMap().get("Detective");
         ((Detective) playerInfo.get(myPosition)).setIsTargetSelected(false);
 
-        detectiveView = createNightCyclePopup();
+        detectiveView = CustomViewMaker.createNightCyclePopup();
+        Label selectTargetLabel = CustomViewMaker.createLabel("Select your target");
+        Label targetsRole = CustomViewMaker.createTargetLabel();
+        JFXButton enterButton = CustomViewMaker.createConfirmButton("CONFIRM");
 
-        Label selectTargetLabel = new Label("Select your target");
-        selectTargetLabel.setFont(new Font("Arial", 20));
-        selectTargetLabel.setTextFill(Paint.valueOf("white"));
+        String[] targets = getTargetersAvailableTargets("Detective");
 
-        Label targetsRole = new Label();
-        targetsRole.setTextFill(Paint.valueOf("white"));
-        targetsRole.setTextAlignment(TextAlignment.CENTER);
-        targetsRole.setFont(new Font("Arial", 20));
 
-        JFXButton enterButton = new JFXButton("CONFIRM");
-        enterButton.setFont(new Font("Arial", 15));
-        enterButton.setTextFill(Paint.valueOf("white"));
-        enterButton.setStyle("-fx-background-color: transparent; -fx-border-color: white;");
-        enterButton.setVisible(false);
-
-        ListView<String> availableTargets = new ListView<>();
-        availableTargets.setMaxHeight(150);
-        availableTargets.getItems().add("No one");
-        // the enter button is hidden by default. Added a listener to the listView such that
-        // whenever user clicks on a selection, the enter button is set to visible
-        availableTargets.getSelectionModel().selectedItemProperty().addListener(
+        ListView<String> availableTargets = CustomViewMaker.createTargetsListView(
+                targets,
                 (v, oldSelection, newSelection) -> {
                     if (!enterButton.isVisible())
                         enterButton.setVisible(true);
                 }
         );
-        // add all of the available targets for detective in the listView
-        // do not include the detective himself
-        for (Player player : playerInfo) {
-            if (!player.getRole().equals("Detective") && player.getStatus() == PlayerStatus.ALIVE) {
-                availableTargets.getItems().add(player.getName());
-            }
-        }
 
         detectiveView.getChildren().addAll(selectTargetLabel, availableTargets, enterButton);
         popupWindows.get("Detective").getChildren().add(detectiveView);

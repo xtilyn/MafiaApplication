@@ -1,10 +1,14 @@
 package test;
 
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import mafia.MafiaApp;
 import mafia.controllers.GameSceneController;
 import mafia.models.GameSceneModel;
+import mafia.utils.CustomViewMaker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,7 +37,7 @@ public class GameSceneControllerTest {
 
     @Test
     public void popupsShouldHaveTheSameBaseCharacteristics() {
-        VBox popupView = gameSceneController.createNightCyclePopup();
+        VBox popupView = CustomViewMaker.createNightCyclePopup();
         performAndIgnoreException(() -> gameSceneController.resetVigilantePopup());
         performAndIgnoreException(() -> gameSceneController.resetBarmanPopup());
         performAndIgnoreException(() -> gameSceneController.resetBodyguardPopup());
@@ -65,6 +69,20 @@ public class GameSceneControllerTest {
                 box1.getPrefWidth() == box2.getPrefWidth() &&
                 box1.getAlignment() == box2.getAlignment() &&
                 box1.getTranslateY() == box2.getTranslateY();
+    }
+
+    @Test
+    public void targetersPopupsShouldContainsTargetsListView() {
+        performAndIgnoreException(() -> gameSceneController.resetVigilantePopup());
+        assert (containsListView(gameSceneController.vigilanteView.getChildren()));
+    }
+
+    private boolean containsListView(ObservableList<Node> parent) {
+        System.out.println(parent.toString());
+        for (Node node : parent) {
+            if (node instanceof ListView) return true;
+        }
+        return false;
     }
 
 }
