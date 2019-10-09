@@ -15,6 +15,7 @@ A JavaFx application tested with JUnit 5.
 <b>Unit Tests</b>
 
 Unit tests are located in the 'test' folder inside the project root. 
+
 <i>Side note:</i>
 
 In order to run GameSceneControllerTest and GameSceneModelTest may require you to install OpenJFX.
