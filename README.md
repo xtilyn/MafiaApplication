@@ -1,6 +1,7 @@
 # MafiaApplication
 
 <b>Description</b>
+
 A JavaFx application tested with JUnit 5.
 
 <b>Installing Libraries (Eclipse) :</b>
@@ -12,7 +13,9 @@ A JavaFx application tested with JUnit 5.
 3. Run
 
 <b>Unit Tests</b>
+
 Unit tests are located in the 'test' folder inside the project root. 
-<i>Side note:</i> 
+<i>Side note:</i>
+
 In order to run GameSceneControllerTest and GameSceneModelTest may require you to install OpenJFX.
 To install openjfx in linux: apt-get install openjfx
