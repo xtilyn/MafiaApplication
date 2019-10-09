@@ -2,8 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a77188-daae-478e-9b5a-dddcc77f684a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/GameSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/GameSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.mylyn/tasks.xml.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.mylyn/tasks.xml.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/MafiaApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/GameSceneController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/controllers/MainMenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/Story.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/data_types/MafiaType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/data_types/PlayerStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Bodyguard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Detective.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Doctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Lyncher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Mafia.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Survivor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Townie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/entities/player_roles/Vigilante.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/models/GameSceneModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/models/MainMenuModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/models/RoleAssignmentTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/mafia/utils/CustomViewMaker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/CustomDataClassTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/GameSceneControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/GameSceneModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/MainMenuModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/PlayerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MafiaApplication/test/TestHelper.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/GameSceneControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+            <state relative-caret-position="644">
+              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/layout/VBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
+            <state relative-caret-position="278">
+              <caret line="142" column="33" lean-forward="true" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -166,6 +199,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,14 +252,6 @@
               <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mafia" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="MainMenuModel.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MafiaApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mafia" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,43 +274,12 @@
             <path>
               <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javafx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javafx" type="462c0819:PsiDirectoryNode" />
-              <item name="scene" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MafiaApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javafx" type="462c0819:PsiDirectoryNode" />
-              <item name="scene" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
+              <item name="com.jfoenix:jfoenix:1.0.0" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -293,7 +288,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570584559265" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570590894787" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -458,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570503806373</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="exporting to eclipse">
+      <created>1570589784521</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570589784521</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -496,7 +498,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1721" height="944" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5648855" visible="true" weight="0.2588802" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5648855" visible="true" weight="0.26550272" />
       <window_info id="Structure" order="1" sideWeight="0.4351145" side_tool="true" weight="0.2588802" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -510,7 +512,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32951653" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32951653" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32951653" />
@@ -533,7 +535,8 @@
     <MESSAGE value="added new custom data objects" />
     <MESSAGE value="performed extract method refactoring in GameSceneController class" />
     <MESSAGE value="reduced Controllers to use new util class" />
-    <option name="LAST_COMMIT_MESSAGE" value="reduced Controllers to use new util class" />
+    <MESSAGE value="exporting to eclipse" />
+    <option name="LAST_COMMIT_MESSAGE" value="exporting to eclipse" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/fxml/Initializable.java">
@@ -840,6 +843,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/GameSceneControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mafia/utils/CustomViewMaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="713">
@@ -850,20 +863,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/GameSceneControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/layout/VBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
+        <state relative-caret-position="278">
+          <caret line="142" column="33" lean-forward="true" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
         </state>
       </provider>
     </entry>
