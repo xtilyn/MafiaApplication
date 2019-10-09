@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/MafiaApplication/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/com.jfoenix:jfoenix:1.0.0"/>
+	<classpathentry kind="var" path="MAVEN_REPOSITORY/org/junit/jupiter/junit-jupiter-api/5.5.2/junit-jupiter-api-5.5.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
